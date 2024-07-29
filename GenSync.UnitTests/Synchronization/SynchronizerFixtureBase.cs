@@ -30,6 +30,7 @@ using GenSync.Synchronization.StateCreationStrategies.ConflictStrategies;
 using GenSync.Synchronization.StateFactories;
 using GenSync.UnitTests.Synchronization.Stubs;
 using GenSync.Utilities;
+using NUnit.Framework.Legacy;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -208,22 +209,22 @@ namespace GenSync.UnitTests.Synchronization
 
         public void AssertServerCount(int i)
         {
-            Assert.AreEqual(i, _serverRepository.Count);
+            ClassicAssert.AreEqual(i, _serverRepository.Count);
         }
 
         public void AssertLocalCount(int i)
         {
-            Assert.AreEqual(i, _localRepository.Count);
+            ClassicAssert.AreEqual(i, _localRepository.Count);
         }
 
         public void AssertServer(string id, int version, string content)
         {
-            Assert.AreEqual(Tuple.Create(version, content), _serverRepository[id]);
+            ClassicAssert.AreEqual(Tuple.Create(version, content), _serverRepository[id]);
         }
 
         public void AssertLocal(string id, int version, string content)
         {
-            Assert.AreEqual(Tuple.Create(version, content), _localRepository[id]);
+            ClassicAssert.AreEqual(Tuple.Create(version, content), _localRepository[id]);
         }
 
         public void AssertLocal(int version, string content)

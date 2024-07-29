@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33130.400
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalDavSynchronizer", "CalDavSynchronizer\CalDavSynchronizer.csproj", "{64937844-752B-49A4-9B3F-3526601E93E1}"
 	ProjectSection(ProjectDependencies) = postProject

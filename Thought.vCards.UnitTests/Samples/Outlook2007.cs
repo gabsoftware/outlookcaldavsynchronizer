@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests.Samples
@@ -104,171 +105,171 @@ namespace Tests.Samples
 
             // 03: N:Pinch;David;John
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Pinch",
                 card.FamilyName,
                 "N at line 3 has a different family name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "David",
                 card.GivenName,
                 "N at line 3 has a different given name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.AdditionalNames,
                 "N at line 3 has a different middle name.");
 
             // 04: FN:Mr. David John Pinch
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Mr. David John Pinch",
                 card.FormattedName,
                 "FN at line 4 has a different formatted name.");
 
             // 05: NICKNAME:Dave
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Nicknames.Count,
                 "Exactly one nickname is located at line 5.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dave",
                 card.Nicknames[0],
                 "NICKNAME at line 5 has a different value.");
 
             // 06: ORG:Thought Project
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Thought Project",
                 card.Organization,
                 "ORG at line 6 has a different value.");
 
             // 07: TITLE:Dictator
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dictator",
                 card.Title,
                 "TITLE at line 7 has a different value.");
 
             // 08: NOTE:Generated with Outlook 2007.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Notes.Count,
                 "Only one note should be in the card.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Generated with Outlook 2007.",
                 card.Notes[0].Text,
                 "NOTE at line 8 has a different value.");
 
             // 09: TEL;WORK;VOICE:800-929-5805
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 3,
                 card.Phones.Count,
                 "Three phone numbers should have been loaded.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "800-929-5805",
                 card.Phones[0].FullNumber,
                 "TEL at line 9 has the wrong phone number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardPhoneTypes.WorkVoice,
                 card.Phones[0].PhoneType,
                 "TEL at line 9 has the wrong phone types.");
 
             // 10: TEL;HOME;VOICE:612-269-6017
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "612-269-6017",
                 card.Phones[1].FullNumber,
                 "TEL at line 10 has the wrong phone number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardPhoneTypes.HomeVoice,
                 card.Phones[1].PhoneType,
                 "TEL at line 10 has the wrong phone types.");
 
             // 11: TEL;CELL;VOICE:612-269-6017
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "612-269-6017",
                 card.Phones[2].FullNumber,
                 "TEL at line 11 has the wrong phone number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardPhoneTypes.CellularVoice,
                 card.Phones[2].PhoneType,
                 "TEL at line 11 has the wrong phone types.");
 
             // 12: ADR;WORK:;;;;;;United States of America
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.DeliveryAddresses.Count,
                 "Two delivery addresses should be defined.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardDeliveryAddressTypes.Work,
                 card.DeliveryAddresses[0].AddressType,
                 "ADR on line 12 has the wrong address type.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 string.Empty,
                 card.DeliveryAddresses[0].City,
                 "ADR on line 12 should have a blank city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "United States of America",
                 card.DeliveryAddresses[0].Country,
                 "ADR on line 12 has the wrong country.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 string.Empty,
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR on line 12 should have a blank postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 string.Empty,
                 card.DeliveryAddresses[0].Region,
                 "ADR on line 12 should have a blank region.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 string.Empty,
                 card.DeliveryAddresses[0].Street,
                 "ADR on line 12 should have a blank street.");
 
             // 13: ADR;HOME;PREF:;;3247 Upton Avenue N,;Minneapolis;MN;55412;United States of America
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Minneapolis",
                 card.DeliveryAddresses[1].City,
                 "ADR on line 13 has the wrong city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "United States of America",
                 card.DeliveryAddresses[1].Country,
                 "ADR on line 13 has the wrong country.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[1].IsHome,
                 "ADR on line 13 should be a home address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "55412",
                 card.DeliveryAddresses[1].PostalCode,
                 "ADR on line 13 has the wrong postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 card.DeliveryAddresses[1].Region,
                 "MN",
                 "ADR on line 13 has the wrong region (state/province).");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "3247 Upton Avenue N,",
                 card.DeliveryAddresses[1].Street,
                 "ADR on line 13 has the wrong street.");
@@ -276,12 +277,12 @@ namespace Tests.Samples
             // 14: LABEL;HOME;PREF;ENCODING=QUOTED-PRINTABLE:3247 Upton Avenue N,=0D=0A=
             // 15: Minneapolis, MN 55412
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryLabels.Count,
                 "LABEL on line 14-15 should be the only delivery label.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "3247 Upton Avenue N,\r\nMinneapolis, MN 55412",
                 card.DeliveryLabels[0].Text,
                 "LABEL on lines 14-15 does not match.");
@@ -292,53 +293,53 @@ namespace Tests.Samples
 
             // 17: X-WAB-GENDER:2
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardGender.Male,
                 card.Gender,
                 "X-WAB-GENDER on line 17 should indicate the male gender.");
 
             // 18: URL;WORK:http://www.thoughtproject.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "URL on line 18 should be the only website in the card.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Websites[0].IsWorkSite,
                 "URL on line 18 indicates a work site.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.thoughtproject.com",
                 card.Websites[0].Url,
                 "URL on line 18 mismatch.");
 
             // 19: ROLE:Programmer
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Programmer",
                 card.Role,
                 "ROLE on line 19 mismatch.");
 
             // 20: BDAY:20090414
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 card.BirthDate,
                 "BDAY on line 20 should have been loaded (property is null).");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 new DateTime(2009, 4, 14),
                 card.BirthDate.Value,
                 "BDAY on line 20 mismatch.");
 
             // 21: KEY;X509;ENCODING=BASE64:
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Certificates.Count,
                 "KEY on line 21 should be the only certificate.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "X509",
                 card.Certificates[0].KeyType,
                 "KEY on line 21 has the wrong key type.");
@@ -346,33 +347,33 @@ namespace Tests.Samples
             X509Certificate2 cert =
                 new X509Certificate2(card.Certificates[0].Data);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 KeyIssuer,
                 cert.Issuer,
                 "The key issuer has a different value.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 KeySubject,
                 cert.Subject,
                 "The key subject has a different value.");
 
             // 35: EMAIL;PREF;INTERNET:dave@thoughtproject.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "EMAIL on line 35 should be the only email address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "dave@thoughtproject.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 35 has the wrong email address.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.EmailAddresses[0].IsPreferred,
                 "EMAIL on line 35 should be preferred.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardEmailAddressType.Internet,
                 card.EmailAddresses[0].EmailType,
                 "EMAIL on line 35 should be an Internet email address.");
@@ -383,7 +384,7 @@ namespace Tests.Samples
 
             // 37: PHOTO;TYPE=JPEG;ENCODING=BASE64:
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Photos.Count,
                 "PHOTO on line 37 should be the only photo.");

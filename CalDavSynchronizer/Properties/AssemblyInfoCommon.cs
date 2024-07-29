@@ -24,9 +24,9 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("CalDavSynchronizer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("CalDavSynchronizer (version CGO)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("CGO")]
 [assembly: AssemblyProduct("CalDavSynchronizer")]
-[assembly: AssemblyCopyright("Copyright © 2015 Gerhard Zehetbauer")]
+[assembly: AssemblyCopyright("Copyright © 2015 Gerhard Zehetbauer (compilé par Gabriel Hautclocq)")]
 [assembly: AssemblyTrademark("")]

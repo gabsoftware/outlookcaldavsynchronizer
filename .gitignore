@@ -9,3 +9,6 @@ packages/*/
 *.exe
 *.msi
 *.ide
+*.pfx
+UpgradeLog.htm
+Download.gif

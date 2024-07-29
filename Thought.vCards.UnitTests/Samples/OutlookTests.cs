@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests.Samples
@@ -96,55 +97,55 @@ namespace Tests.Samples
 
             // 03 N:Pinch;David;John
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Pinch",
                 card.FamilyName,
                 "N at line 3 has a different family name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "David",
                 card.GivenName,
                 "N at line 3 has a different given name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.AdditionalNames,
                 "N at line 3 has a different middle name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Certificates.Count,
                 "Only one certificate was expected.");
 
             // 04 FN:David John Pinch
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "David John Pinch",
                 card.FormattedName,
                 "FN at line 4 has a different formatted name.");
 
             // 05 NICKNAME:Dave
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Nicknames.Count,
                 "Exactly one nickname is located at line 5.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dave",
                 card.Nicknames[0],
                 "NICKNAME at line 5 has a different value.");
 
             // 06 ORG:Thought Project
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Thought Project",
                 card.Organization,
                 "ORG at line 6 has a different value.");
 
             // 07 TITLE:Dictator
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dictator",
                 card.Title,
                 "TITLE at line 7 has a different value.");
@@ -152,47 +153,47 @@ namespace Tests.Samples
             // 08 TEL;WORK;VOICE:800-929-5805
             // 09 TEL;HOME;VOICE:612-269-6017
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two telephone numbers are defined at lines 8 and 9.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL at line 8 is a work number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL at line 8 is a voice number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "800-929-5805",
                 card.Phones[0].FullNumber,
                 "TEL at line 8 has a different value.");
 
             // 09 TEL;HOME;VOICE:612-269-6017
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsHome,
                 "TEL at line 9 is a home number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsVoice,
                 "TEL at line 9 is a voice number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "612-269-6017",
                 card.Phones[1].FullNumber,
                 "TEL at line 9 has a different value.");
 
             // 10 KEY;X509;ENCODING=BASE64:
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Certificates.Count,
                 "There is one certificate starting on line 10.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "X509",
                 card.Certificates[0].KeyType,
                 "KEY on line 10 has a different key type.");
@@ -202,12 +203,12 @@ namespace Tests.Samples
             X509Certificate2 cert =
                 new X509Certificate2(card.Certificates[0].Data);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 KeyIssuer,
                 cert.Issuer,
                 "The key issuer has a different value.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 KeySubject,
                 cert.Subject,
                 "The key subject has a different value.");
@@ -241,50 +242,50 @@ namespace Tests.Samples
 
             // 03 N:Pinch;David;John
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Pinch",
                 card.FamilyName,
                 "N at line 3 has a different family name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "David",
                 card.GivenName,
                 "N at line 3 has a different given name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.AdditionalNames,
                 "N at line 3 has a different middle name.");
 
             // 04 FN:David John Pinch
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "David John Pinch",
                 card.FormattedName,
                 "FN at line 4 has a different formatted name.");
 
             // 05 NICKNAME:Dave
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Nicknames.Count,
                 "Exactly one nickname is located at line 5.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dave",
                 card.Nicknames[0],
                 "NICKNAME at line 5 has a different value.");
 
             // 06 ORG:Thought Project
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Thought Project",
                 card.Organization,
                 "ORG at line 6 has a different value.");
 
             // 07 TITLE:Dictator
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dictator",
                 card.Title,
                 "TITLE at line 7 has a different value.");
@@ -292,122 +293,122 @@ namespace Tests.Samples
             // 08 TEL;WORK;VOICE:800-929-5805
             // 09 TEL;HOME;VOICE:612-269-6017
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two telephone numbers are defined at lines 8 and 9.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL at line 8 is a work number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL at line 8 is a voice number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "800-929-5805",
                 card.Phones[0].FullNumber,
                 "TEL at line 8 has a different value.");
 
             // 09 TEL;HOME;VOICE:612-269-6017
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsHome,
                 "TEL at line 9 is a home number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsVoice,
                 "TEL at line 9 is a voice number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "612-269-6017",
                 card.Phones[1].FullNumber,
                 "TEL at line 9 has a different value.");
 
             // 10 ADR;HOME:;;129 15th Street #3;Minneapolis;MN;55403;United States of America
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "There is one delivery address at line 10.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "129 15th Street #3",
                 card.DeliveryAddresses[0].Street,
                 "ADR at line 10 has a different street.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Minneapolis",
                 card.DeliveryAddresses[0].City,
                 "ADR at line 10 has a different city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "MN",
                 card.DeliveryAddresses[0].Region,
                 "ADR at line 10 has a different region/state.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "55403",
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR at line 10 has a different postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "United States of America",
                 card.DeliveryAddresses[0].Country,
                 "ADR at line 10 has a different country.");
 
             // 11 LABEL;HOME;ENCODING=QUOTED-PRINTABLE:129 15th Street #3=0D=0AMinneapolis, MN 55403=0D=0AUnited States of America
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryLabels.Count,
                 "There is one delivery label at line 11.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryLabels[0].IsHome,
                 "LABEL at line 11 is a home delivery address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "129 15th Street #3\r\nMinneapolis, MN 55403\r\nUnited States of America",
                 card.DeliveryLabels[0].Text,
                 "LABEL at line 11 has a different decoded value.");
 
             // 12 URL;WORK:http://www.thoughtproject.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "There is one web site (URL) at line 12.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Websites[0].IsWorkSite,
                 "The web site at line 12 is a work-related web site.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.thoughtproject.com",
                 card.Websites[0].Url,
                 "URL at line 12 has a different value.");
 
             // 13 EMAIL;PREF;INTERNET:dave@thoughtproject.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "There is one email address at line 13.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.EmailAddresses[0].IsPreferred,
                 "The email address at line 13 is the preferred email address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "dave@thoughtproject.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL at line 13 has a different value.");
 
             // 14 REV:20061130T234000Z
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardStandardReader.ParseDate("20061130T234000Z").Value,
                 card.RevisionDate.Value,
                 "REV at line 14 has a different value.");
@@ -423,7 +424,7 @@ namespace Tests.Samples
             vCard card = new vCard(
                 new StreamReader(new MemoryStream(SampleCards.UnicodeNameSample)));
 
-            Assert.IsNotNull(card);
+            ClassicAssert.IsNotNull(card);
             //Assert.AreEqual("³ÂÀö¾ý", card.GivenName);
         }
 

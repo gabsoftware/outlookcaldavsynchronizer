@@ -26,6 +26,7 @@ using CalDavSynchronizer.IntegrationTests.TestBase;
 using CalDavSynchronizer.Scheduling;
 using DDay.iCal;
 using GenSync.Logging;
+using NUnit.Framework.Legacy;
 using NUnit.Framework;
 
 namespace CalDavSynchronizer.IntegrationTests

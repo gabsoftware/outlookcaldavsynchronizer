@@ -34,6 +34,7 @@ using GenSync.Synchronization;
 using log4net;
 using log4net.Core;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Rhino.Mocks;
 
 namespace CalDavSynchronizer.UnitTest.Scheduling

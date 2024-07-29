@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -13,13 +14,13 @@ namespace Tests
         {
             vCardCertificate cert = new vCardCertificate();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 cert.KeyType,
                 "The string KeyType property should default to String.Empty.");
 
             cert.KeyType = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 cert.KeyType,
                 "The string KeyType should be String.Empty when assigned null.");
         }

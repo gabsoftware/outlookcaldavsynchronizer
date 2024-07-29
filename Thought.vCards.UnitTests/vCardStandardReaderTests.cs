@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -16,7 +17,7 @@ namespace Tests
         [TestMethod]
         public void DecodeEscaped_Comma()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 ",",
                 vCardStandardReader.DecodeEscaped(","),
                 "A sole comma should be ignored as bad formatting.");
@@ -31,7 +32,7 @@ namespace Tests
         {
             // The \, sequence should be collapsed to a single comma.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 ",,",
                 vCardStandardReader.DecodeEscaped(@",\,"));
         }
@@ -45,7 +46,7 @@ namespace Tests
         {
             // The \, sequence should be collapsed to a single comma.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 ",,,",
                 vCardStandardReader.DecodeEscaped(@",\,,"));
         }
@@ -57,7 +58,7 @@ namespace Tests
         [TestMethod]
         public void DecodeEscaped_Empty()
         {
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 vCardStandardReader.DecodeEscaped(string.Empty));
         }
 
@@ -68,7 +69,7 @@ namespace Tests
         [TestMethod]
         public void DecodeEscaped_SlashComma()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 ",",
                 vCardStandardReader.DecodeEscaped("\\,"));
         }
@@ -80,7 +81,7 @@ namespace Tests
         [TestMethod]
         public void DecodeEscaped_Null()
         {
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 vCardStandardReader.DecodeEscaped((string) null));
         }
 
@@ -110,70 +111,70 @@ namespace Tests
             // function is properly converting every
             // possible hexadecimal character.
 
-            Assert.AreEqual(0,
+            ClassicAssert.AreEqual(0,
                 vCardStandardReader.DecodeHexadecimal('0'));
 
-            Assert.AreEqual(1,
+            ClassicAssert.AreEqual(1,
                 vCardStandardReader.DecodeHexadecimal('1'));
 
-            Assert.AreEqual(2,
+            ClassicAssert.AreEqual(2,
                 vCardStandardReader.DecodeHexadecimal('2'));
 
-            Assert.AreEqual(3,
+            ClassicAssert.AreEqual(3,
                 vCardStandardReader.DecodeHexadecimal('3'));
 
-            Assert.AreEqual(4,
+            ClassicAssert.AreEqual(4,
                 vCardStandardReader.DecodeHexadecimal('4'));
 
-            Assert.AreEqual(5,
+            ClassicAssert.AreEqual(5,
                 vCardStandardReader.DecodeHexadecimal('5'));
 
-            Assert.AreEqual(6,
+            ClassicAssert.AreEqual(6,
                 vCardStandardReader.DecodeHexadecimal('6'));
 
-            Assert.AreEqual(7,
+            ClassicAssert.AreEqual(7,
                 vCardStandardReader.DecodeHexadecimal('7'));
 
-            Assert.AreEqual(8,
+            ClassicAssert.AreEqual(8,
                 vCardStandardReader.DecodeHexadecimal('8'));
 
-            Assert.AreEqual(9,
+            ClassicAssert.AreEqual(9,
                 vCardStandardReader.DecodeHexadecimal('9'));
 
-            Assert.AreEqual(10,
+            ClassicAssert.AreEqual(10,
                 vCardStandardReader.DecodeHexadecimal('A'));
 
-            Assert.AreEqual(10,
+            ClassicAssert.AreEqual(10,
                 vCardStandardReader.DecodeHexadecimal('a'));
 
-            Assert.AreEqual(11,
+            ClassicAssert.AreEqual(11,
                 vCardStandardReader.DecodeHexadecimal('B'));
 
-            Assert.AreEqual(11,
+            ClassicAssert.AreEqual(11,
                 vCardStandardReader.DecodeHexadecimal('b'));
 
-            Assert.AreEqual(12,
+            ClassicAssert.AreEqual(12,
                 vCardStandardReader.DecodeHexadecimal('C'));
 
-            Assert.AreEqual(12,
+            ClassicAssert.AreEqual(12,
                 vCardStandardReader.DecodeHexadecimal('c'));
 
-            Assert.AreEqual(13,
+            ClassicAssert.AreEqual(13,
                 vCardStandardReader.DecodeHexadecimal('D'));
 
-            Assert.AreEqual(13,
+            ClassicAssert.AreEqual(13,
                 vCardStandardReader.DecodeHexadecimal('d'));
 
-            Assert.AreEqual(14,
+            ClassicAssert.AreEqual(14,
                 vCardStandardReader.DecodeHexadecimal('E'));
 
-            Assert.AreEqual(14,
+            ClassicAssert.AreEqual(14,
                 vCardStandardReader.DecodeHexadecimal('e'));
 
-            Assert.AreEqual(15,
+            ClassicAssert.AreEqual(15,
                 vCardStandardReader.DecodeHexadecimal('F'));
 
-            Assert.AreEqual(15,
+            ClassicAssert.AreEqual(15,
                 vCardStandardReader.DecodeHexadecimal('f'));
         }
 
@@ -196,7 +197,7 @@ namespace Tests
         {
             // Empty should be returned if Empty is specified.
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 vCardStandardReader.DecodeQuotedPrintable(string.Empty));
         }
 
@@ -207,7 +208,7 @@ namespace Tests
         [TestMethod]
         public void DecodeQuotedPrintable_EqualSign_EqualSign()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "==",
                 vCardStandardReader.DecodeQuotedPrintable("=="),
                 "The two (invalid) equal signs are treated as raw data.");
@@ -226,7 +227,7 @@ namespace Tests
             const string decodedLine =
                 "Line1 Is Data1\r\nLine2 Is Data2";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 decodedLine,
                 vCardStandardReader.DecodeQuotedPrintable(encodedLine));
         }
@@ -245,7 +246,7 @@ namespace Tests
             // no more lines, it invalid.  The decoder should treat
             // it as a bad sequence and output it as raw text.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "=",
                 vCardStandardReader.DecodeQuotedPrintable("="),
                 "The invalid equal sign is treated as raw data.");
@@ -263,7 +264,7 @@ namespace Tests
             // another equal sign, then the first one is treated
             // as raw data.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "=\r",
                 vCardStandardReader.DecodeQuotedPrintable("==0D"),
                 "The invalid equal sign is treated as raw data.");
@@ -276,7 +277,7 @@ namespace Tests
         [TestMethod]
         public void DecodeQuotedPrintable_IncompleteEscapeCode()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "=A",
                 vCardStandardReader.DecodeQuotedPrintable("=A"),
                 "The sequence is incomplete and therefore treated as raw data.");
@@ -289,7 +290,7 @@ namespace Tests
         [TestMethod]
         public void DecodeQuotedPrintable_InvalidEscapeCode()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "=AXA\r",
                 vCardStandardReader.DecodeQuotedPrintable("=AXA=0D"),
                 "The bad sequence is invalid and therefore treated as raw data.");
@@ -304,7 +305,7 @@ namespace Tests
         {
             // Null should be returned if Null is specified.
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 vCardStandardReader.DecodeQuotedPrintable(null));
         }
 
@@ -329,7 +330,7 @@ namespace Tests
             vCardStandardReader reader = new vCardStandardReader();
             reader.ReadProperty(":VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 reader.Warnings.Count,
                 "A missing name should have caused a warning.");
@@ -345,7 +346,7 @@ namespace Tests
             vCardStandardReader reader = new vCardStandardReader();
             reader.ReadProperty("TEL 911");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 reader.Warnings.Count,
                 "A missing colon should have caused a warning.");
@@ -391,12 +392,12 @@ namespace Tests
             vCardProperty property =
                 reader.ReadProperty(encodedValue);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "LABEL",
                 property.Name,
                 "The name of the property should be LABEL.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 property.Subproperties.Contains("HOME"),
                 "The property should have a subproperty called HOME.");
 
@@ -404,7 +405,7 @@ namespace Tests
             // value should be decoded.  It should not have the
             // quoted-printable escape sequences.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 decodedValue,
                 property.ToString());
         }
@@ -419,7 +420,7 @@ namespace Tests
             vCardStandardReader reader = new vCardStandardReader();
             reader.ReadProperty(":");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 reader.Warnings.Count,
                 "A single colon should have caused a warning.");
@@ -435,7 +436,7 @@ namespace Tests
             vCardStandardReader reader = new vCardStandardReader();
             reader.ReadProperty("  ");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 reader.Warnings.Count,
                 "A string with only whitespace should have caused a warning.");
@@ -456,16 +457,16 @@ namespace Tests
             vCardProperty property = reader.ReadProperty(
                 TestName + ":" + TestValue);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestName,
                 property.Name);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestValue,
                 property.Value,
                 "The parsed value is incorrect.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 property.Subproperties,
                 "The Subproperties collection should be empty.");
         }
@@ -486,27 +487,27 @@ namespace Tests
             vCardProperty property =
                 reader.ReadProperty("NAME;SUB1;SUB2:VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 property.Name,
                 "The Name is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 property.Subproperties.Count,
                 "The Subproperties collection has an incorrect number of items.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SUB1",
                 property.Subproperties[0].Name,
                 "The Subproperty[0] value is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SUB2",
                 property.Subproperties[1].Name,
                 "The Subproperty[1] value is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 property.Value,
                 "The parsed value is incorrect.");
@@ -525,22 +526,22 @@ namespace Tests
             vCardProperty property =
                 reader.ReadProperty("NAME;SUB:VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 property.Name,
                 "The Name is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 property.Subproperties.Count,
                 "The Subproperties collection has an incorrect number of items.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SUB",
                 property.Subproperties[0].Name,
                 "The Subproperty value is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 property.Value,
                 "The parsed value is incorrect.");
@@ -558,27 +559,27 @@ namespace Tests
             vCardProperty property =
                 reader.ReadProperty("TEL;TYPE=WORK:800-929-5805");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "TEL",
                 property.Name,
                 "The name of the property should be TEL");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 property.Subproperties.Count,
                 "There should be exactly one subproperty.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "TYPE",
                 property.Subproperties[0].Name,
                 "The name of the subproperty should be TYPE.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "WORK",
                 property.Subproperties[0].Value,
                 "The value of the subproperty should be WORK.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "800-929-5805",
                 property.Value,
                 "The value of the property is not correct.");

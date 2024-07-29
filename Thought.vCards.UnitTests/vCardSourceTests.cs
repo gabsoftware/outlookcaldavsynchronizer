@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -18,11 +19,11 @@ namespace Tests
 
             vCardSource source = new vCardSource();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 source.Context,
                 "The Context property should default to empty.");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 source.Uri,
                 "The Uri property should default to null.");
         }
@@ -37,7 +38,7 @@ namespace Tests
             vCardSource source = new vCardSource();
 
             source.Context = "LDAP";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "LDAP",
                 source.Context,
                 "The Context property is not working.");
@@ -54,7 +55,7 @@ namespace Tests
             vCardSource source = new vCardSource();
 
             source.Uri = testUri;
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 testUri,
                 source.Uri);
         }

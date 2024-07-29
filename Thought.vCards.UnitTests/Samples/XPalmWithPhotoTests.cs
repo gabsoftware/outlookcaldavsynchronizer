@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests.Samples
@@ -62,96 +63,96 @@ namespace Tests.Samples
 
             // 03 N:Leonhard;Gerd
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Leonhard",
                 card.FamilyName,
                 "N (family name) on line 3 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Gerd",
                 card.GivenName,
                 "N (given name) on line 3 failed.");
 
             // 04 FN:Gerd Leonhard
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Gerd Leonhard",
                 card.FormattedName,
                 "FN on line 4 failed.");
 
             // 05 TITLE:CEO
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "CEO",
                 card.Title,
                 "TITLE on line 5 failed.");
 
             // 06 ORG:ThinkAndLink, MusicFuturist, Sonific
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "ThinkAndLink, MusicFuturist, Sonific",
                 card.Organization,
                 "ORG on line 6 failed.");
 
             // 07 ADR;WORK:;;Terrassenstrasse 26;Arlesheim;;4144;Switzerland
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "One delivery address expected on line 7.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[0].IsWork,
                 "ADR on line 7 is a work address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Terrassenstrasse 26",
                 card.DeliveryAddresses[0].Street,
                 "ADR on line 7 has a different street address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Arlesheim",
                 card.DeliveryAddresses[0].City,
                 "ADR on line 7 has a different city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "4144",
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR on line 7 has a different postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Switzerland",
                 card.DeliveryAddresses[0].Country,
                 "ADR on line 7 has a different country.");
 
             // 08 URL;WORK:www.gerdleonhard.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "Only one URL is located in the file (line 8).");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Websites[0].IsWorkSite,
                 "URL on line 8 is a work-related web site.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "www.gerdleonhard.com",
                 card.Websites[0].Url,
                 "URL on line 8 has a different value.");
 
             // 09 TEL;WORK:+41617018882
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 5,
                 card.Phones.Count,
                 "The vCard has four numbers at lines 4, 12, 13, 14 and 15.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL on line 9 is a work-related number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+41617018882",
                 card.Phones[0].FullNumber,
                 "TEL on line 9 has a different wrong phone number.");
@@ -159,57 +160,57 @@ namespace Tests.Samples
             // 10 EMAIL:gleonhard@gmail.com
             // 11 EMAIL:gerd@gerdleonhard.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.EmailAddresses.Count,
                 "There are two email addresses beginning at line 10.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "gleonhard@gmail.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL at line 10 has a different value.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "gerd@gerdleonhard.com",
                 card.EmailAddresses[1].Address,
                 "EMAIL at line 11 has a different value.");
 
             // 12 TEL;CELL:+41797935384
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsCellular,
                 "TEL at line 12 is a cellular phone number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+41797935384",
                 card.Phones[1].FullNumber,
                 "TEL at line 12 has a different value.");
 
             // 13 TEL;PAGER:US:14158467093
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[2].IsPager,
                 "TEL at line 13 is a pager number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "US:14158467093",
                 card.Phones[2].FullNumber,
                 "TEL at line 13 has a different value.");
 
             // 14 TEL;FAX:+4112742899
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[3].IsFax,
                 "TEL at line 14 is a fax number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+4112742899",
                 card.Phones[3].FullNumber,
                 "TEL at line 14 has a different value.");
 
             // 15 TEL:SkypeL gleonhard
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SkypeL gleonhard",
                 card.Phones[4].FullNumber,
                 "TEL at line 15 has a different value.");
@@ -218,12 +219,12 @@ namespace Tests.Samples
 
             // 21 PHOTO;JPEG;BASE64:
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Photos.Count,
                 "There is a single photo starting at line 21.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Photos[0].IsLoaded,
                 "The photo is embedded and therefore should have been loaded.");
 
@@ -233,12 +234,12 @@ namespace Tests.Samples
 
             using (Bitmap bitmap = card.Photos[0].GetBitmap())
             {
-                Assert.AreEqual(
+                ClassicAssert.AreEqual(
                     82,
                     bitmap.Size.Width,
                     "The width is incorrect.");
 
-                Assert.AreEqual(
+                ClassicAssert.AreEqual(
                     96,
                     bitmap.Size.Height,
                     "The height is incorrect.");

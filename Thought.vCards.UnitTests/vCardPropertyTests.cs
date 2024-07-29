@@ -2,6 +2,7 @@ using System;
 using Thought.vCards;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assert = NUnit.Framework.Assert;
+using NUnit.Framework.Legacy;
 
 namespace Tests
 {
@@ -22,15 +23,15 @@ namespace Tests
         {
             vCardProperty property = new vCardProperty();
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 property.Subproperties,
                 "The subproperties collection was not created.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 property.Subproperties,
                 "The subproperties collection should be empty.");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 property.Value,
                 "The value should be null.");
         }
@@ -44,20 +45,20 @@ namespace Tests
         {
             vCardProperty property = new vCardProperty("NAME");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 property.Name,
                 "The name is incorrect.");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 property.Value,
                 "The value should be null.");
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 property.Subproperties,
                 "The subproperties collection was not created.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 property.Subproperties,
                 "The subproperties collection should be empty.");
         }
@@ -74,21 +75,21 @@ namespace Tests
 
             vCardProperty property = new vCardProperty("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 property.Name,
                 "The name is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 property.Value,
                 "The value is incorrect.");
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 property.Subproperties,
                 "The subproperties collection was not created.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 property.Subproperties,
                 "The subproperties collection should be empty.");
         }

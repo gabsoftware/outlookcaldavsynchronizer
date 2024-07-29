@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -15,13 +16,13 @@ namespace Tests
         {
             vCardPhone phone = new vCardPhone();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 phone.FullNumber,
                 "The full number should default to String.Empty.");
 
             phone.FullNumber = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 phone.FullNumber,
                 "The FullNumber property should return String.Empty instead of null.");
         }
@@ -41,7 +42,7 @@ namespace Tests
 
             vCardPhone phone = new vCardPhone();
             phone.FullNumber = "800-929-5805";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "800-929-5805",
                 phone.FullNumber,
                 "The FullNumber property is not working.");
@@ -57,10 +58,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsBBS = true;
-            Assert.IsTrue(phone.IsBBS, "IsBBS should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsBBS, "IsBBS should have been set to true.");
 
             phone.IsBBS = false;
-            Assert.IsFalse(phone.IsBBS, "IsBBS should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsBBS, "IsBBS should have been set to false.");
         }
 
         #endregion
@@ -73,10 +74,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsCar = true;
-            Assert.IsTrue(phone.IsCar, "IsCar should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsCar, "IsCar should have been set to true.");
 
             phone.IsCar = false;
-            Assert.IsFalse(phone.IsCar, "IsCar should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsCar, "IsCar should have been set to false.");
         }
 
         #endregion
@@ -89,10 +90,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsCellular = true;
-            Assert.IsTrue(phone.IsCellular, "IsCellular should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsCellular, "IsCellular should have been set to true.");
 
             phone.IsCellular = false;
-            Assert.IsFalse(phone.IsCellular, "IsCellular should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsCellular, "IsCellular should have been set to false.");
         }
 
         #endregion
@@ -105,10 +106,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsFax = true;
-            Assert.IsTrue(phone.IsFax, "IsFax should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsFax, "IsFax should have been set to true.");
 
             phone.IsFax = false;
-            Assert.IsFalse(phone.IsFax, "IsFax should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsFax, "IsFax should have been set to false.");
         }
 
         #endregion
@@ -121,10 +122,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsHome = true;
-            Assert.IsTrue(phone.IsHome, "IsHome should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsHome, "IsHome should have been set to true.");
 
             phone.IsHome = false;
-            Assert.IsFalse(phone.IsHome, "IsHome should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsHome, "IsHome should have been set to false.");
         }
 
         #endregion
@@ -137,10 +138,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsISDN = true;
-            Assert.IsTrue(phone.IsISDN, "IsISDN should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsISDN, "IsISDN should have been set to true.");
 
             phone.IsISDN = false;
-            Assert.IsFalse(phone.IsISDN, "IsISDN should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsISDN, "IsISDN should have been set to false.");
         }
 
         #endregion
@@ -153,10 +154,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsMessagingService = true;
-            Assert.IsTrue(phone.IsMessagingService, "IsMessagingService should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsMessagingService, "IsMessagingService should have been set to true.");
 
             phone.IsMessagingService = false;
-            Assert.IsFalse(phone.IsMessagingService, "IsMessagingService should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsMessagingService, "IsMessagingService should have been set to false.");
         }
 
         #endregion
@@ -169,10 +170,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsModem = true;
-            Assert.IsTrue(phone.IsModem, "IsModem should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsModem, "IsModem should have been set to true.");
 
             phone.IsModem = false;
-            Assert.IsFalse(phone.IsModem, "IsModem should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsModem, "IsModem should have been set to false.");
         }
 
         #endregion
@@ -185,10 +186,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsPager = true;
-            Assert.IsTrue(phone.IsPager, "IsPager should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsPager, "IsPager should have been set to true.");
 
             phone.IsPager = false;
-            Assert.IsFalse(phone.IsPager, "IsPager should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsPager, "IsPager should have been set to false.");
         }
 
         #endregion
@@ -201,10 +202,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsPreferred = true;
-            Assert.IsTrue(phone.IsPreferred, "IsPreferred should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsPreferred, "IsPreferred should have been set to true.");
 
             phone.IsPreferred = false;
-            Assert.IsFalse(phone.IsPreferred, "IsPreferred should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsPreferred, "IsPreferred should have been set to false.");
         }
 
         #endregion
@@ -217,10 +218,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsVideo = true;
-            Assert.IsTrue(phone.IsVideo, "IsVideo should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsVideo, "IsVideo should have been set to true.");
 
             phone.IsVideo = false;
-            Assert.IsFalse(phone.IsVideo, "IsVideo should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsVideo, "IsVideo should have been set to false.");
         }
 
         #endregion
@@ -233,10 +234,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsVoice = true;
-            Assert.IsTrue(phone.IsVoice, "IsVoice should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsVoice, "IsVoice should have been set to true.");
 
             phone.IsVoice = false;
-            Assert.IsFalse(phone.IsVoice, "IsVoice should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsVoice, "IsVoice should have been set to false.");
         }
 
         #endregion
@@ -249,10 +250,10 @@ namespace Tests
             vCardPhone phone = new vCardPhone();
 
             phone.IsWork = true;
-            Assert.IsTrue(phone.IsWork, "IsWork should have been set to true.");
+            ClassicAssert.IsTrue(phone.IsWork, "IsWork should have been set to true.");
 
             phone.IsWork = false;
-            Assert.IsFalse(phone.IsWork, "IsWork should have been set to false.");
+            ClassicAssert.IsFalse(phone.IsWork, "IsWork should have been set to false.");
         }
 
         #endregion

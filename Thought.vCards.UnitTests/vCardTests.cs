@@ -1,6 +1,9 @@
 using System;
+using System.Globalization;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -27,7 +30,7 @@ namespace Tests
             vCard card = new vCard();
             card.AdditionalNames = "John";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.AdditionalNames,
                 "The AdditionalNames property is not working.");
@@ -43,14 +46,14 @@ namespace Tests
             vCard card = new vCard();
             card.BirthDate = DateTime.Parse("04/04/04");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 DateTime.Parse("04/04/04"),
                 card.BirthDate.Value,
                 "The BirthDate property was not set.");
 
             card.BirthDate = null;
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 card.BirthDate,
                 "The BirthDate property was not set to null.");
         }
@@ -65,7 +68,7 @@ namespace Tests
             vCard card = new vCard();
             card.Department = "DOD";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "DOD",
                 card.Department,
                 "The Department property is not working.");
@@ -83,7 +86,7 @@ namespace Tests
             vCard card = new vCard();
             card.FamilyName = "Tchaikovsky";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Tchaikovsky",
                 card.FamilyName,
                 "The FamilyName property does not return the same value written to it.");
@@ -101,7 +104,7 @@ namespace Tests
             vCard card = new vCard();
             card.FormattedName = "Sir Isaac Newton";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Sir Isaac Newton",
                 card.FormattedName,
                 "The FormattedName property is not working.");
@@ -117,7 +120,7 @@ namespace Tests
             vCard card = new vCard();
             card.Gender = vCardGender.Male;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardGender.Male,
                 card.Gender,
                 "The Gender property is not working.");
@@ -135,7 +138,7 @@ namespace Tests
             vCard card = new vCard();
             card.GivenName = "Homer";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Homer",
                 card.GivenName,
                 "The GivenName property is not working.");
@@ -151,7 +154,7 @@ namespace Tests
             vCard card = new vCard();
             card.Mailer = "RemoteAccess BBS";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "RemoteAccess BBS",
                 card.Mailer,
                 "The Mailer property is not working.");
@@ -167,7 +170,7 @@ namespace Tests
             vCard card = new vCard();
             card.NamePrefix = "Dr.";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dr.",
                 card.NamePrefix,
                 "The NamePrefix property is not working.");
@@ -183,7 +186,7 @@ namespace Tests
             vCard card = new vCard();
             card.Office = "Vice President's Office";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Vice President's Office",
                 card.Office,
                 "The Office property is not working.");
@@ -201,7 +204,7 @@ namespace Tests
             vCard card = new vCard();
             card.Organization = "BBC";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "BBC",
                 card.Organization,
                 "The Organization property is not working.");
@@ -217,7 +220,7 @@ namespace Tests
             vCard card = new vCard();
             card.ProductId = "vCard Library";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "vCard Library",
                 card.ProductId,
                 "The ProductId property is not working.");
@@ -231,10 +234,12 @@ namespace Tests
         public void ReadWriteProperty_RevisionDate()
         {
             vCard card = new vCard();
-            card.RevisionDate = DateTime.Parse("01/01/2001 01:01 AM");
+            DateTime dt1 = DateTime.ParseExact("01/01/2001 01:01 AM", "MM/dd/yyyy hh:mm tt", new CultureInfo("en-US"), DateTimeStyles.None);
+            DateTime dt2 = DateTime.ParseExact("01/01/2001 01:01 AM", "MM/dd/yyyy hh:mm tt", new CultureInfo("en-US"), DateTimeStyles.None);
+            card.RevisionDate = dt1;
 
-            Assert.AreEqual(
-                DateTime.Parse("01/01/2001 01:01 AM"),
+            ClassicAssert.AreEqual(
+                dt2,
                 card.RevisionDate,
                 "The RevisionDate property is not working.");
 
@@ -242,11 +247,12 @@ namespace Tests
             // REV:2013-09-18T15:39:21Z
             // REV:20130918T153921Z
 
-            DateTime date = DateTime.Parse("11/25/2012 01:01 AM");
+            DateTime date = DateTime.ParseExact("11/25/2012 01:01 AM", "MM/dd/yyyy hh:mm tt", new CultureInfo("en-US"), DateTimeStyles.None);
+            //DateTime date = DateTime.Parse("11/25/2012 01:01 AM");
 
             string revDate = date.ToString("s") + "Z";
 
-            Assert.AreEqual("2012-11-25T01:01:00Z", revDate);
+            ClassicAssert.AreEqual("2012-11-25T01:01:00Z", revDate);
         }
 
         #endregion
@@ -259,7 +265,7 @@ namespace Tests
             vCard card = new vCard();
             card.Role = "Candy Bar Tester";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Candy Bar Tester",
                 card.Role,
                 "The Role property is not working.");
@@ -274,7 +280,7 @@ namespace Tests
         {
             vCard card = new vCard();
             card.TimeZone = "-05:00";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-05:00",
                 card.TimeZone,
                 "The TimeZone property is not working.");
@@ -292,7 +298,7 @@ namespace Tests
             vCard card = new vCard();
             card.Title = "VP of Slapping People in the Face";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VP of Slapping People in the Face",
                 card.Title,
                 "The Title property is not working.");
@@ -308,7 +314,7 @@ namespace Tests
             vCard card = new vCard();
             card.UniqueId = "I am unique, just like everyone else.";
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "I am unique, just like everyone else.",
                 card.UniqueId,
                 "The UniqueId property is not working.");
@@ -328,13 +334,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.AdditionalNames,
                 "AdditionalNames is not string.Empty.");
 
             card.AdditionalNames = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.AdditionalNames,
                 "AdditionalNames is not string.Empty after being assigned null.");
         }
@@ -348,13 +354,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Department,
                 "Department is not string.Empty.");
 
             card.Department = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Department,
                 "Department is not string.Empty after being assigned null.");
         }
@@ -368,13 +374,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.DisplayName,
                 "DisplayName is not string.Empty.");
 
             card.DisplayName = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.DisplayName,
                 "DisplayName is not string.Empty after being assigned null.");
         }
@@ -388,13 +394,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.FamilyName,
                 "FamilyName is not string.Empty.");
 
             card.FamilyName = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.FamilyName,
                 "FamilyName is not string.Empty after being assigned null.");
         }
@@ -408,13 +414,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.FormattedName,
                 "FormattedName is not string.Empty.");
 
             card.FormattedName = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.FormattedName,
                 "FormattedName is not string.Empty after being assigned null.");
         }
@@ -428,13 +434,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.GivenName,
                 "GivenName is not string.Empty.");
 
             card.GivenName = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.GivenName,
                 "GivenName is not string.Empty after being assigned null.");
         }
@@ -448,13 +454,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Mailer,
                 "Mailer is not string.Empty.");
 
             card.Mailer = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Mailer,
                 "Mailer is not string.Empty after being assigned null.");
         }
@@ -468,13 +474,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.NamePrefix,
                 "NamePrefix is not string.Empty.");
 
             card.NamePrefix = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.NamePrefix,
                 "NamePrefix is not string.Empty after being assigned null.");
         }
@@ -488,13 +494,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.NameSuffix,
                 "NameSuffix is not string.Empty.");
 
             card.NameSuffix = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.NameSuffix,
                 "NameSuffix is not string.Empty after being assigned null.");
         }
@@ -508,13 +514,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Office,
                 "Office is not string.Empty.");
 
             card.Office = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Office,
                 "Office is not string.Empty after being assigned null.");
         }
@@ -528,13 +534,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Organization,
                 "Organization is not string.Empty.");
 
             card.Organization = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Organization,
                 "Organization is not string.Empty after being assigned null.");
         }
@@ -548,13 +554,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.ProductId,
                 "ProductId is not string.Empty.");
 
             card.ProductId = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.ProductId,
                 "ProductId is not string.Empty after being assigned null.");
         }
@@ -568,13 +574,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Role,
                 "Role is not string.Empty.");
 
             card.Role = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Role,
                 "Role is not string.Empty after being assigned null.");
         }
@@ -588,13 +594,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.TimeZone,
                 "TimeZone is not string.Empty.");
 
             card.TimeZone = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.TimeZone,
                 "TimeZone is not string.Empty after being assigned null.");
         }
@@ -608,13 +614,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Title,
                 "Title is not string.Empty.");
 
             card.Title = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.Title,
                 "Title is not string.Empty after being assigned null.");
         }
@@ -628,13 +634,13 @@ namespace Tests
         {
             vCard card = new vCard();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.UniqueId,
                 "UniqueId is not string.Empty.");
 
             card.UniqueId = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 card.UniqueId,
                 "UniqueId is not string.Empty after being assigned null.");
         }

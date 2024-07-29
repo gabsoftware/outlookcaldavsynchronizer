@@ -132,6 +132,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
@@ -186,7 +187,9 @@
     <Compile Include="AutomaticUpdates\IAvailableVersionService.cs" />
     <Compile Include="AutomaticUpdates\NewerVersionFoundEventArgs.cs" />
     <Compile Include="AutomaticUpdates\UpdateChecker.cs" />
-    <Compile Include="CalDavSynchronizerRibbon.cs" />
+    <Compile Include="CalDavSynchronizerRibbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CalDavSynchronizerRibbon.Designer.cs">
       <DependentUpon>CalDavSynchronizerRibbon.cs</DependentUpon>
     </Compile>
@@ -406,7 +409,9 @@
     <Compile Include="Scheduling\SynchronizationStatus.cs" />
     <Compile Include="Synchronization\OutlookEventSynchronizer.cs" />
     <Compile Include="Implementation\ContactAndDistListSynchronizer.cs" />
-    <Compile Include="Ui\AddResourceForm.cs" />
+    <Compile Include="Ui\AddResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ui\AddResourceForm.Designer.cs">
       <DependentUpon>AddResourceForm.cs</DependentUpon>
     </Compile>
@@ -616,7 +621,9 @@
     <Compile Include="Ui\Options\AutoDiscoveryResult.cs" />
     <Compile Include="Ui\DelegateCommand.cs" />
     <Compile Include="Ui\ColorInfo.cs" />
-    <Compile Include="Ui\ColorPicker.cs" />
+    <Compile Include="Ui\ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Ui\ColorPicker.Designer.cs">
       <DependentUpon>ColorPicker.cs</DependentUpon>
     </Compile>
@@ -625,16 +632,24 @@
     <Compile Include="Ui\ConnectionTests\ConnectionTester.cs" />
     <Compile Include="Ui\ConnectionTests\ResourceType.cs" />
     <Compile Include="Ui\ConnectionTests\TestResult.cs" />
-    <Compile Include="Ui\DraggableTabControl.cs" />
-    <Compile Include="Ui\GenericElementHostWindow.cs" />
+    <Compile Include="Ui\DraggableTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\GenericElementHostWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ui\GenericElementHostWindow.Designer.cs">
       <DependentUpon>GenericElementHostWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\GetNewVersionForm.cs" />
+    <Compile Include="Ui\GetNewVersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ui\GetNewVersionForm.Designer.cs">
       <DependentUpon>GetNewVersionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\AboutForm.cs" />
+    <Compile Include="Ui\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ui\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
@@ -716,7 +731,9 @@
     <Compile Include="Ui\Reports\Views\SynchronizationReportView.xaml.cs">
       <DependentUpon>SynchronizationReportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\Options\SelectResourceForm.cs" />
+    <Compile Include="Ui\Options\SelectResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ui\Options\SelectResourceForm.Designer.cs">
       <DependentUpon>SelectResourceForm.cs</DependentUpon>
     </Compile>
@@ -782,6 +799,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="apps_groupecgo.pfx" />
     <None Include="CalDavSynchronizer_TemporaryKey.pfx" />
     <Compile Include="Ui\SystrayNotification\ITrayNotifier.cs" />
     <Compile Include="Ui\SystrayNotification\NullTrayNotifier.cs" />
@@ -904,7 +922,7 @@
       <Version>1.0.2.575</Version>
     </PackageReference>
     <PackageReference Include="Google.Apis.Tasks.v1">
-      <Version>1.67.0.3372</Version>
+      <Version>1.68.0.3468</Version>
     </PackageReference>
     <PackageReference Include="Google.GData.Contacts">
       <Version>2.2.0</Version>
@@ -1056,11 +1074,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>apps_groupecgo.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1DD03B86FE5C780F60AADFD80FC8963626189ECF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E2B52663EAEBE6588E7D3A4182EC53737D828205</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/rfc3161</ManifestTimestampUrl>

@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -17,23 +18,23 @@ namespace Tests
 
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.City,
                 "The City property should default to String.Empty.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Country,
                 "The Country property should default to String.Empty.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.PostalCode,
                 "The PostalCode property should default to String.Empty.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Region,
                 "The Region property should default to String.Empty.");
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Street,
                 "The Street property should default to String.Empty.");
         }
@@ -47,13 +48,13 @@ namespace Tests
         {
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.City,
                 "The City property should default to String.Empty.");
 
             address.City = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.City,
                 "The City property should return String.Empty instead of null.");
         }
@@ -67,13 +68,13 @@ namespace Tests
         {
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Country,
                 "The Country property should default to String.Empty.");
 
             address.Country = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Country,
                 "The Country property should return String.Empty instead of null.");
         }
@@ -87,13 +88,13 @@ namespace Tests
         {
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.PostalCode,
                 "The PostalCode property should default to String.Empty.");
 
             address.PostalCode = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.PostalCode,
                 "The PostalCode property should return String.Empty instead of null.");
         }
@@ -107,13 +108,13 @@ namespace Tests
         {
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Region,
                 "The Region property should default to String.Empty.");
 
             address.Region = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Region,
                 "The Region property should return String.Empty instead of null.");
         }
@@ -127,13 +128,13 @@ namespace Tests
         {
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Street,
                 "The Street property should default to String.Empty.");
 
             address.Street = null;
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 address.Street,
                 "The Street property should return String.Empty instead of null.");
         }
@@ -149,7 +150,7 @@ namespace Tests
 
             address.AddressType.Add(vCardDeliveryAddressTypes.Domestic);
 
-            Assert.IsTrue(address.AddressType.Contains(vCardDeliveryAddressTypes.Domestic), "The AddressType property is not working.");
+            ClassicAssert.IsTrue(address.AddressType.Contains(vCardDeliveryAddressTypes.Domestic), "The AddressType property is not working.");
         }
 
         #endregion
@@ -162,7 +163,7 @@ namespace Tests
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
             address.City = "Warroad";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Warroad",
                 address.City,
                 "The City property is not working.");
@@ -178,7 +179,7 @@ namespace Tests
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
             address.Country = "Jordan";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Jordan",
                 address.Country,
                 "The Country property is not working.");
@@ -194,7 +195,7 @@ namespace Tests
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
             address.PostalCode = "55109";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "55109",
                 address.PostalCode,
                 "The PostalCode property is not working.");
@@ -210,7 +211,7 @@ namespace Tests
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
             address.Region = "North Pole";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "North Pole",
                 address.Region,
                 "The Region property is not working.");
@@ -226,7 +227,7 @@ namespace Tests
             vCardDeliveryAddress address = new vCardDeliveryAddress();
 
             address.Street = "1490 Lark Avenue";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "1490 Lark Avenue",
                 address.Street,
                 "The Street property is not working.");

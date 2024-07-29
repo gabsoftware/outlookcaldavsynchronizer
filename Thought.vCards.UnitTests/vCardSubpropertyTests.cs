@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests
@@ -14,12 +15,12 @@ namespace Tests
         {
             vCardSubproperty sub = new vCardSubproperty("NAME");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 sub.Name,
                 "The Name property was not initialized.");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 sub.Value,
                 "The value should be null.");
         }
@@ -33,12 +34,12 @@ namespace Tests
         {
             vCardSubproperty sub = new vCardSubproperty("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 sub.Name,
                 "The Name property was not initialized.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 sub.Value,
                 "The Value property was not initialized.");
@@ -54,7 +55,7 @@ namespace Tests
             vCardSubproperty sub = new vCardSubproperty("NAME");
 
             sub.Name = "SUBNAME";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SUBNAME",
                 sub.Name,
                 "The Name property is not working.");
@@ -70,7 +71,7 @@ namespace Tests
             vCardSubproperty sub = new vCardSubproperty("NAME");
 
             sub.Value = "SUBVALUE";
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "SUBVALUE",
                 sub.Value,
                 "The Value property is not working.");

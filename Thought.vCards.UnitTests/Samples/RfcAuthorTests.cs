@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests
@@ -58,17 +59,17 @@ namespace Tests
             // 11 URL:http://home.earthlink.net/~fdawson
             // 12 END:vCard
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Frank Dawson",
                 card.FormattedName,
                 "FN on line 3 is different.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Lotus Development Corporation",
                 card.Organization,
                 "ORG on line 4 is different.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "One address expected in card 1 at line 5.");
@@ -76,34 +77,34 @@ namespace Tests
             // 05 ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive
             // 06  ;Raleigh;NC;27613-3502;U.S.A.
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[0].IsWork,
                 "ADR on lines 5-6 is a work address.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[0].IsPostal,
                 "ADR on lines 5-6 is a postal address.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[0].IsParcel,
                 "ADR on lines 5-6 is a parcel address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "6544 Battleford Drive",
                 card.DeliveryAddresses[0].Street,
                 "ADR on lines 5-6 has a different street address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Raleigh",
                 card.DeliveryAddresses[0].City,
                 "ADR on lines 5-6 has a different city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "27613-3502",
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR on lines 5-6 has a different postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "U.S.A.",
                 card.DeliveryAddresses[0].Country,
                 "ADR on lines 5-6 has a different country.");
@@ -111,39 +112,39 @@ namespace Tests
             // 07 TEL;TYPE=VOICE,MSG,WORK:+1-919-676-9515
             // 08 TEL;TYPE=FAX,WORK:+1-919-676-9564
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two phones are expected at lines 7-8.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL at line 7 is a voice number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsMessagingService,
                 "TEL at line 7 is a messaging service.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL at line 7 is a work number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-919-676-9515",
                 card.Phones[0].FullNumber,
                 "TEL at line 7 has a different number.");
 
             // 08 TEL;TYPE=FAX,WORK:+1-919-676-9564
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsFax,
                 "TEL at line 8 is a fax number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsWork,
                 "TEL at line 8 is a work number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-919-676-9564",
                 card.Phones[1].FullNumber,
                 "TEL at line 8 has a different number.");
@@ -151,44 +152,44 @@ namespace Tests
             // 09 EMAIL;TYPE=INTERNET,PREF:Frank_Dawson@Lotus.com
             // 10 EMAIL;TYPE=INTERNET:fdawson@earthlink.net
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.EmailAddresses.Count,
                 "Two email addresses are at lines 9 and 10.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.EmailAddresses[0].EmailType == vCardEmailAddressType.Internet,
                 "EMAIL at line 9 is an Internet email address.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.EmailAddresses[0].IsPreferred,
                 "EMAIL at line 9 is a preferred email address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Frank_Dawson@Lotus.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL at line 9 has a different value.");
 
             // 10 EMAIL;TYPE=INTERNET:fdawson@earthlink.net
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardEmailAddressType.Internet,
                 card.EmailAddresses[1].EmailType,
                 "EMAIL at line 10 is an Internet email address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "fdawson@earthlink.net",
                 card.EmailAddresses[1].Address,
                 "EMAIL at line 10 has a different value.");
 
             // 11 URL:http://home.earthlink.net/~fdawson
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "One URL is located at line 11.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://home.earthlink.net/~fdawson",
                 card.Websites[0].Url,
                 "URL at line 11 has a different value.");
@@ -211,12 +212,12 @@ namespace Tests
             // 21 EMAIL;TYPE=INTERNET:howes@netscape.com
             // 22 END:vCard
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Tim Howes",
                 card.FormattedName,
                 "FN at line 15 is different.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Netscape Communications Corp.",
                 card.Organization,
                 "ORG at line 16 is different.");
@@ -224,36 +225,36 @@ namespace Tests
             // 17 ADR;TYPE=WORK:;;501 E. Middlefield Rd.;Mountain View;
             // 18  CA; 94043;U.S.A.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "One ADR located at lines 17-18.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.DeliveryAddresses[0].IsWork,
                 "ADR on lines 17-18 is a work address.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "501 E. Middlefield Rd.",
                 card.DeliveryAddresses[0].Street,
                 "ADR on lines 17-18 has a different street.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Mountain View",
                 card.DeliveryAddresses[0].City,
                 "ADR on lines 17-18 has a different city.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "CA",
                 card.DeliveryAddresses[0].Region,
                 "ADR on lines 17-18 has a different region/state.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "94043",
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR on lines 17-18 has a different postal code.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "U.S.A.",
                 card.DeliveryAddresses[0].Country,
                 "ADR on lines 17-18 has a different country.");
@@ -261,56 +262,56 @@ namespace Tests
             // 19 TEL;TYPE=VOICE,MSG,WORK:+1-415-937-3419
             // 20 TEL;TYPE=FAX,WORK:+1-415-528-4164
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two phones are defined on lines 19 and 20.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL on line 19 is a voice number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsMessagingService,
                 "TEL on line 19 is a messaging service number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL on line 19 is a work number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-415-937-3419",
                 card.Phones[0].FullNumber,
                 "TEL on line 19 has a different value.");
 
             // 20 TEL;TYPE=FAX,WORK:+1-415-528-4164
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsFax,
                 "TEL on line 20 is a fax number.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsWork,
                 "TEL on line 20 is a fax number.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-415-528-4164",
                 card.Phones[1].FullNumber,
                 "TEL on line 20 has a different value.");
 
             // 21 EMAIL;TYPE=INTERNET:howes@netscape.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "One email address on line 21.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardEmailAddressType.Internet,
                 card.EmailAddresses[0].EmailType,
                 "EMAIL on line 21 is INTERNET.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "howes@netscape.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 21 has a different value.");

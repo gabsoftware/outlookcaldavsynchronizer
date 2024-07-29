@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests
@@ -43,17 +44,17 @@ namespace Tests
 
             subs.AddOrUpdate("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.Count,
                 "Only one property should be in the collection.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 subs[0].Name,
                 "The subproperty does not have the correct name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 subs[0].Value,
                 "The subproperty does not have the correct value.");
@@ -71,34 +72,34 @@ namespace Tests
 
             subs.AddOrUpdate("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.Count,
                 "Only one property should be in the collection.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 subs[0].Name,
                 "The subproperty does not have the correct name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 subs[0].Value,
                 "The subproperty does not have the correct value.");
 
             subs.AddOrUpdate("NAME", "VALUE2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.Count,
                 "Only one property should be in the collection.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 subs[0].Name,
                 "The subproperty does not have the correct name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE2",
                 subs[0].Value,
                 "The subproperty does not have the updated value.");
@@ -116,34 +117,34 @@ namespace Tests
 
             subs.AddOrUpdate("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.Count,
                 "Only one property should be in the collection.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 subs[0].Name,
                 "The subproperty does not have the correct name.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 subs[0].Value,
                 "The subproperty does not have the correct value.");
 
             subs.AddOrUpdate("NAME", null);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.Count,
                 "Only one property should be in the collection.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME",
                 subs[0].Name,
                 "The subproperty does not have the correct name.");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 subs[0].Value,
                 "The updated value should be null.");
         }
@@ -160,23 +161,23 @@ namespace Tests
 
             subs.Add("NAME");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 subs.Contains("NAME"),
                 "The collection should contain the specified subproperty.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 subs.Contains("namE"),
                 "Subproperty names are not case-sensitive.");
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 subs.Contains((string) null),
                 "The Contains method should not return True for null.");
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 subs.Contains(string.Empty),
                 "The Contains method should not return True for Empty.");
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 subs.Contains("SOMENAME"),
                 "There is no subproperty with the specified name.");
         }
@@ -190,7 +191,7 @@ namespace Tests
         {
             vCardSubpropertyCollection subs = new vCardSubpropertyCollection();
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 subs.Contains(string.Empty));
         }
 
@@ -203,7 +204,7 @@ namespace Tests
         {
             vCardSubpropertyCollection subs = new vCardSubpropertyCollection();
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 subs.Contains((string) null));
         }
 
@@ -256,7 +257,7 @@ namespace Tests
 
             string value1 = subs.GetValue("NAME");
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 value1,
                 "A null value should have been returned.");
         }
@@ -275,7 +276,7 @@ namespace Tests
 
             string value = subs.GetValue("NAME");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 value,
                 "The value should have been returned.");
@@ -318,7 +319,7 @@ namespace Tests
             string value =
                 subs.GetValue("NAME", new string[] {"ABC", "VALUE"});
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 value,
                 "The value should have been returned.");
@@ -340,7 +341,7 @@ namespace Tests
             string value =
                 subs.GetValue("NAME", (string[]) null);
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 value,
                 "The value should be null.");
         }
@@ -363,7 +364,7 @@ namespace Tests
             string value =
                 subs.GetValue("NAME", (string[]) null);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "VALUE",
                 value,
                 "The value should have been returned despite the null list.");
@@ -386,17 +387,17 @@ namespace Tests
             subs.Add("NAME1");
             subs.Add("NAME2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 0,
                 subs.IndexOf("NAME0"),
                 "The subproperty should be at index 0.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 subs.IndexOf("NAME1"),
                 "The subproperty should be at index 1.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 subs.IndexOf("NAME2"),
                 "The subproperty should be at index 2.");
@@ -413,7 +414,7 @@ namespace Tests
 
             // IndexOf should not raise an exception for an empty string.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 subs.IndexOf(string.Empty));
         }
@@ -432,7 +433,7 @@ namespace Tests
             // does not cause an error (e.g. it catches any
             // code that assumes the collection to be non-empty).
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 subs.IndexOf("NAME"));
         }
@@ -451,7 +452,7 @@ namespace Tests
             subs.Add("NAME2");
             subs.Add("NAME3");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 subs.IndexOf("NAME"));
         }
@@ -469,7 +470,7 @@ namespace Tests
             // for a null string.  It should return -1 to indicate
             // the name was not located.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 subs.IndexOf((string) null));
         }
@@ -491,7 +492,7 @@ namespace Tests
             int index = subs.IndexOfAny(
                 new string[] {"FIND1", "FIND2", "FIND3"});
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 index,
                 "No matches should have been found.");
@@ -514,7 +515,7 @@ namespace Tests
             int index = subs.IndexOfAny(
                 new string[] {"FIND1", "FIND2", "FIND3"});
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 -1,
                 index,
                 "No matches should have been found.");
@@ -537,7 +538,7 @@ namespace Tests
             int index = subs.IndexOfAny(
                 new string[] {"FIND0", "NAME1", "FIND2"});
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 index);
         }

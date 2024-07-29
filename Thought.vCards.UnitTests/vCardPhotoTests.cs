@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests
@@ -17,7 +18,7 @@ namespace Tests
         ///     local network.  This will save bandwidth costs for the author.
         /// </summary>
         private const string TestPhotoUrl =
-            "http://www.thoughtproject.com/Common/Download.gif";
+            "https://kronos-dev.cgo.local/img/Download.gif";
 
         /// <summary>
         ///     The height of the test image in pixels.
@@ -27,7 +28,7 @@ namespace Tests
         /// <summary>
         ///     The size (in bytes) of the test image.
         /// </summary>
-        private const int TestPhotoSize = 579;
+        private const int TestPhotoSize = 422;
 
         /// <summary>
         ///     The width of the test photo in pixels.
@@ -46,7 +47,7 @@ namespace Tests
 
             vCardPhoto photo = new vCardPhoto("c:\\fake-picture.gif");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 photo.Url.IsFile);
         }
 
@@ -63,11 +64,11 @@ namespace Tests
 
             vCardPhoto photo = new vCardPhoto(base64Image, true);
 
-            Assert.IsTrue(photo.HasEncodedData, "encoded data is false");
+            ClassicAssert.IsTrue(photo.HasEncodedData, "encoded data is false");
 
             var data = photo.EncodedData;
 
-            Assert.AreEqual(base64Image, data);
+            ClassicAssert.AreEqual(base64Image, data);
         }
 
         #region [ Constructor_String_Empty ]
@@ -119,13 +120,13 @@ namespace Tests
 
             vCardPhoto photo = new vCardPhoto(TestPhotoUrl);
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 photo.IsLoaded,
                 "The photo has not been loaded yet.");
 
             photo.Fetch();
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 photo.IsLoaded,
                 "The photo should have been loaded.");
 
@@ -133,19 +134,19 @@ namespace Tests
 
             byte[] data = photo.GetBytes();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestPhotoSize,
                 data.Length,
                 "The length of the photo is unexpected.");
 
             using (Bitmap bitmap = photo.GetBitmap())
             {
-                Assert.AreEqual(
+                ClassicAssert.AreEqual(
                     TestPhotoHeight,
                     bitmap.Size.Height,
                     "The photo height is unexpected.");
 
-                Assert.AreEqual(
+                ClassicAssert.AreEqual(
                     TestPhotoWidth,
                     bitmap.Size.Width,
                     "The photo width is unexpected.");

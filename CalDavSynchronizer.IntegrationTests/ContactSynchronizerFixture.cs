@@ -27,6 +27,7 @@ using CalDavSynchronizer.IntegrationTests.Infrastructure;
 using CalDavSynchronizer.IntegrationTests.TestBase;
 using DDay.iCal;
 using GenSync.Logging;
+using NUnit.Framework.Legacy;
 using NUnit.Framework;
 using Thought.vCards;
 

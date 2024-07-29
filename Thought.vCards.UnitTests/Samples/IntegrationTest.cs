@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Thought.vCards;
 using System.IO;
+using NUnit.Framework.Legacy;
 
 namespace Tests.Samples
 {
@@ -81,7 +82,7 @@ namespace Tests.Samples
             }
 
 
-            Assert.IsNotNull(text);
+            ClassicAssert.IsNotNull(text);
 
 
             vCardStandardReader reader = new vCardStandardReader();
@@ -90,13 +91,13 @@ namespace Tests.Samples
             {
                 vCard cardFromReader = reader.Read(sr);
 
-                Assert.AreEqual(1, cardFromReader.EmailAddresses.Count);
+                ClassicAssert.AreEqual(1, cardFromReader.EmailAddresses.Count);
 
                 var email = cardFromReader.EmailAddresses.First();
-                Assert.AreEqual(true, email.IsPreferred);
-                Assert.AreEqual(ItemType.WORK, email.ItemType);
-                Assert.AreEqual(vCardEmailAddressType.Internet, email.EmailType);
-                Assert.AreEqual("john@email.com", email.Address);
+                ClassicAssert.AreEqual(true, email.IsPreferred);
+                ClassicAssert.AreEqual(ItemType.WORK, email.ItemType);
+                ClassicAssert.AreEqual(vCardEmailAddressType.Internet, email.EmailType);
+                ClassicAssert.AreEqual("john@email.com", email.Address);
             }
         }
 
@@ -156,7 +157,7 @@ namespace Tests.Samples
             }
 
 
-            Assert.IsNotNull(text);
+            ClassicAssert.IsNotNull(text);
         }
 
         [TestMethod]
@@ -186,39 +187,39 @@ END:VCARD";
             {
                 vCard cardFromReader = reader.Read(sr);
 
-                Assert.AreEqual(1, cardFromReader.EmailAddresses.Count);
+                ClassicAssert.AreEqual(1, cardFromReader.EmailAddresses.Count);
 
                 var email = cardFromReader.EmailAddresses.First();
-                Assert.AreEqual(true, email.IsPreferred);
-                Assert.AreEqual(ItemType.UNSPECIFIED, email.ItemType);
-                Assert.AreEqual(vCardEmailAddressType.Internet, email.EmailType);
-                Assert.AreEqual("forrestgump@example.com", email.Address);
+                ClassicAssert.AreEqual(true, email.IsPreferred);
+                ClassicAssert.AreEqual(ItemType.UNSPECIFIED, email.ItemType);
+                ClassicAssert.AreEqual(vCardEmailAddressType.Internet, email.EmailType);
+                ClassicAssert.AreEqual("forrestgump@example.com", email.Address);
 
 
-                Assert.AreEqual("Shrimp Man", cardFromReader.Title);
-                Assert.AreEqual("Forrest", cardFromReader.GivenName);
-                Assert.AreEqual("Gump", cardFromReader.FamilyName);
+                ClassicAssert.AreEqual("Shrimp Man", cardFromReader.Title);
+                ClassicAssert.AreEqual("Forrest", cardFromReader.GivenName);
+                ClassicAssert.AreEqual("Gump", cardFromReader.FamilyName);
 
 
-                Assert.AreEqual(2, cardFromReader.Phones.Count);
+                ClassicAssert.AreEqual(2, cardFromReader.Phones.Count);
 
                 var phone404 = cardFromReader.Phones.FirstOrDefault(x => x.FullNumber == "(404) 555-1212");
                 var phone111 = cardFromReader.Phones.FirstOrDefault(x => x.FullNumber == "(111) 555-1212");
 
-                Assert.IsNotNull(phone111);
-                Assert.IsNotNull(phone404);
+                ClassicAssert.IsNotNull(phone111);
+                ClassicAssert.IsNotNull(phone404);
 
-                Assert.IsTrue(phone111.IsWork);
-                Assert.IsTrue(phone111.IsVoice);
+                ClassicAssert.IsTrue(phone111.IsWork);
+                ClassicAssert.IsTrue(phone111.IsVoice);
 
-                Assert.IsTrue(phone404.IsVoice);
-                Assert.IsTrue(phone404.IsHome);
+                ClassicAssert.IsTrue(phone404.IsVoice);
+                ClassicAssert.IsTrue(phone404.IsHome);
 
-                Assert.AreEqual(1, cardFromReader.DeliveryAddresses.Count);
+                ClassicAssert.AreEqual(1, cardFromReader.DeliveryAddresses.Count);
                 var address = cardFromReader.DeliveryAddresses.First();
-                Assert.IsNotNull(address);
-                Assert.IsTrue(address.AddressType.Any(a => a == vCardDeliveryAddressTypes.Work), "work address type not found");
-                Assert.IsTrue(address.AddressType.Any(a => a == vCardDeliveryAddressTypes.Preferred), "preferred address type not found");
+                ClassicAssert.IsNotNull(address);
+                ClassicAssert.IsTrue(address.AddressType.Any(a => a == vCardDeliveryAddressTypes.Work), "work address type not found");
+                ClassicAssert.IsTrue(address.AddressType.Any(a => a == vCardDeliveryAddressTypes.Preferred), "preferred address type not found");
 
 
                 vCardStandardWriter standardWriter = new vCardStandardWriter();
@@ -230,7 +231,7 @@ END:VCARD";
                     sw.Flush();
                     var tempStrign = sw.ToString();
 
-                    Assert.IsNotNull(tempStrign);
+                    ClassicAssert.IsNotNull(tempStrign);
                 }
             }
 
@@ -244,7 +245,61 @@ END:VCARD";
         [TestMethod]
         public void ShouldReadvCardWithAllCBFieldsFilledOutFromiPhoneNAB()
         {
-            string text = @"BEGIN:VCARDVERSION:3.0PRODID:-//Apple Inc.//iOS 6.0.1//ENN:iOS;Nic;;;FN:Nic iOSORG:Ibm;TITLE:Sales Guyitem1.EMAIL;type=INTERNET;type=pref:nic.schlueter@dublabs.comEMAIL;type=INTERNET;type=WORK:nic@work.comEMAIL;type=INTERNET;type=WORK:nic2@work.comEMAIL;type=INTERNET;type=HOME:h@h.comEMAIL;type=INTERNET;type=HOME:y@y.comTEL;type=CELL;type=VOICE;type=pref:(202) 333-4555TEL;type=IPHONE;type=CELL;type=VOICE:(202) 333-4444TEL;type=HOME;type=VOICE:(333) 222-2222TEL;type=WORK;type=VOICE:(809) 555-6666 x444TEL;type=MAIN:(609) 888-7777TEL;type=HOME;type=FAX:(555) 444-4443TEL;type=WORK;type=FAX:33322222222item2.TEL:(999) 777-7999item2.X-ABLabel:personalitem3.ADR;type=HOME;type=pref:;;8230 Boone Blvd;Vinna;VA;22182;United Statesitem3.X-ABADR:usitem4.URL;type=pref:http://facebook.com/max.solenderitem4.X-ABLabel:Profileitem5.URL:www.ibm.comitem5.X-ABLabel:_$!<HomePage>!$_item6.X-MSN:msnnameitem6.X-ABLabel:_$!<Other>!$_item7.X-AIM:aolnameitem7.X-ABLabel:_$!<Other>!$_item8.X-YAHOO:yahoonameitem8.X-ABLabel:_$!<Other>!$_item9.X-JABBER:jabbernameitem9.X-ABLabel:_$!<Other>!$_IMPP;X-SERVICE-TYPE=Skype;type=HOME;type=pref:skype:skypeusernameeeIMPP;X-SERVICE-TYPE=Skype;type=WORK:skype:worksyokeusernameitem10.IMPP;X-SERVICE-TYPE=MSN:msnim:msnnameitem10.X-ABLabel:_$!<Other>!$_item11.IMPP;X-SERVICE-TYPE=AIM:aim:aolnameitem11.X-ABLabel:_$!<Other>!$_item12.IMPP;X-SERVICE-TYPE=GoogleTalk:xmpp:gtalknameitem12.X-ABLabel:_$!<Other>!$_item13.IMPP;X-SERVICE-TYPE=Yahoo:ymsgr:yahoonameitem13.X-ABLabel:_$!<Other>!$_item14.IMPP;X-SERVICE-TYPE=Facebook:xmpp:fbchatnameitem14.X-ABLabel:_$!<Other>!$_item15.IMPP;X-SERVICE-TYPE=Jabber:xmpp:jabbernameitem15.X-ABLabel:_$!<Other>!$_item16.IMPP;X-SERVICE-TYPE=GaduGadu;type=HOME;type=pref:x-apple:jdgaduX-SOCIALPROFILE;type=linkedin;x-user=nicatlinkedin:http://www.linkedin.com/in/nicatlinkedinX-SOCIALPROFILE;type=twitter;x-user=tiffanystone:http://twitter.com/tiffanystoneX-SOCIALPROFILE;type=facebook;x-user=tiffatfacebook:http://www.facebook.com/tiffatfacebookX-SOCIALPROFILE;type=twitter;x-user=gregabedard:http://twitter.com/gregabedardPHOTO;TYPE=JPEG;ENCODING=BASE64:
+            string text = @"BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iOS 6.0.1//EN
+N:iOS;Nic;;;
+FN:Nic iOS
+ORG:Ibm;
+TITLE:Sales Guy
+item1.EMAIL;type=INTERNET;type=pref:nic.schlueter@dublabs.com
+EMAIL;type=INTERNET;type=WORK:nic@work.com
+EMAIL;type=INTERNET;type=WORK:nic2@work.com
+EMAIL;type=INTERNET;type=HOME:h@h.com
+EMAIL;type=INTERNET;type=HOME:y@y.com
+TEL;type=CELL;type=VOICE;type=pref:(202) 333-4555
+TEL;type=IPHONE;type=CELL;type=VOICE:(202) 333-4444
+TEL;type=HOME;type=VOICE:(333) 222-2222
+TEL;type=WORK;type=VOICE:(809) 555-6666 x444
+TEL;type=MAIN:(609) 888-7777
+TEL;type=HOME;type=FAX:(555) 444-4443
+TEL;type=WORK;type=FAX:33322222222
+item2.TEL:(999) 777-7999
+item2.X-ABLabel:personal
+item3.ADR;type=HOME;type=pref:;;8230 Boone Blvd;Vinna;VA;22182;United States
+item3.X-ABADR:us
+item4.URL;type=pref:http://facebook.com/max.solender
+item4.X-ABLabel:Profile
+item5.URL:www.ibm.com
+item5.X-ABLabel:_$!<HomePage>!$_
+item6.X-MSN:msnname
+item6.X-ABLabel:_$!<Other>!$_
+item7.X-AIM:aolname
+item7.X-ABLabel:_$!<Other>!$_
+item8.X-YAHOO:yahooname
+item8.X-ABLabel:_$!<Other>!$_
+item9.X-JABBER:jabbername
+item9.X-ABLabel:_$!<Other>!$_
+IMPP;X-SERVICE-TYPE=Skype;type=HOME;type=pref:skype:skypeusernameee
+IMPP;X-SERVICE-TYPE=Skype;type=WORK:skype:worksyokeusername
+item10.IMPP;X-SERVICE-TYPE=MSN:msnim:msnname
+item10.X-ABLabel:_$!<Other>!$_
+item11.IMPP;X-SERVICE-TYPE=AIM:aim:aolname
+item11.X-ABLabel:_$!<Other>!$_
+item12.IMPP;X-SERVICE-TYPE=GoogleTalk:xmpp:gtalkname
+item12.X-ABLabel:_$!<Other>!$_
+item13.IMPP;X-SERVICE-TYPE=Yahoo:ymsgr:yahooname
+item13.X-ABLabel:_$!<Other>!$_
+item14.IMPP;X-SERVICE-TYPE=Facebook:xmpp:fbchatname
+item14.X-ABLabel:_$!<Other>!$_
+item15.IMPP;X-SERVICE-TYPE=Jabber:xmpp:jabbername
+item15.X-ABLabel:_$!<Other>!$_
+item16.IMPP;X-SERVICE-TYPE=GaduGadu;type=HOME;type=pref:x-apple:jdgadu
+X-SOCIALPROFILE;type=linkedin;x-user=nicatlinkedin:http://www.linkedin.com/in/nicatlinkedin
+X-SOCIALPROFILE;type=twitter;x-user=tiffanystone:http://twitter.com/tiffanystone
+X-SOCIALPROFILE;type=facebook;x-user=tiffatfacebook:http://www.facebook.com/tiffatfacebook
+X-SOCIALPROFILE;type=twitter;x-user=gregabedard:http://twitter.com/gregabedard
+PHOTO;TYPE=JPEG;ENCODING=BASE64:
  /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQY
  GBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYa
  KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAAR
@@ -275,14 +330,15 @@ END:VCARD";
  1P8AtdWmZiVUYxyB9MVw2ptJDqLM2MqR09+9FFe7XSVNWN6as7HU+CZI7u9u7C5BZJcSLnse
  9dLF8OWursHS7sQSMeFcZX/61FFeRXk4zdjqi/dOWuGkhlnspHDCCZ4zjoSDg4/nV/wJNC+t
  xW91Ek0UoZGV1yMjoR+VFFdc4r2TXkYSep2euafZ6ftlsrdY95+YLxnFa+iOY9MUHqSTRRXl
- PWKMZtsyNal3Tge1FFFdtKK5UZM//9k=END:VCARD";
+ PWKMZtsyNal3Tge1FFFdtKK5UZM//9k=
+END:VCARD";
 
             vCardStandardReader reader = new vCardStandardReader();
             using (StringReader sr = new StringReader(text))
             {
                 vCard c = reader.Read(sr);
 
-                Assert.AreEqual(5, c.EmailAddresses.Count);
+                ClassicAssert.AreEqual(5, c.EmailAddresses.Count);
 
                 CheckEmail(c.EmailAddresses, "nic.schlueter@dublabs.com", ItemType.UNSPECIFIED, vCardEmailAddressType.Internet, true);
                 CheckEmail(c.EmailAddresses, "nic@work.com", ItemType.WORK, vCardEmailAddressType.Internet, false);
@@ -291,13 +347,13 @@ END:VCARD";
                 CheckEmail(c.EmailAddresses, "y@y.com", ItemType.HOME, vCardEmailAddressType.Internet, false);
 
 
-                Assert.AreEqual("Sales Guy", c.Title);
-                Assert.AreEqual("Ibm", c.Organization);
-                Assert.AreEqual("Nic", c.GivenName);
-                Assert.AreEqual("iOS", c.FamilyName);
+                ClassicAssert.AreEqual("Sales Guy", c.Title);
+                ClassicAssert.AreEqual("Ibm", c.Organization);
+                ClassicAssert.AreEqual("Nic", c.GivenName);
+                ClassicAssert.AreEqual("iOS", c.FamilyName);
 
 
-                Assert.AreEqual(8, c.Phones.Count);
+                ClassicAssert.AreEqual(8, c.Phones.Count);
 
                 CheckPhone(c.Phones, "(202) 333-4555", vCardPhoneTypes.Preferred | vCardPhoneTypes.Cellular | vCardPhoneTypes.Voice, true);
                 CheckPhone(c.Phones, "(202) 333-4444", vCardPhoneTypes.IPhone | vCardPhoneTypes.Cellular | vCardPhoneTypes.Voice, false);
@@ -324,23 +380,23 @@ END:VCARD";
                 CheckIM(c.IMs, "jabbername", IMServiceType.Jabber, ItemType.UNSPECIFIED, false);
                 CheckIM(c.IMs, "jdgadu", IMServiceType.GaduGadu, ItemType.HOME, true);
 
-                Assert.AreEqual(4, c.SocialProfiles.Count);
+                ClassicAssert.AreEqual(4, c.SocialProfiles.Count);
                 CheckSocialProfile(c.SocialProfiles, "nicatlinkedin", "http://www.linkedin.com/in/nicatlinkedin", SocialProfileServiceType.LinkedIn);
                 CheckSocialProfile(c.SocialProfiles, "tiffanystone", "http://twitter.com/tiffanystone", SocialProfileServiceType.Twitter);
                 CheckSocialProfile(c.SocialProfiles, "tiffatfacebook", "http://www.facebook.com/tiffatfacebook", SocialProfileServiceType.Facebook);
                 CheckSocialProfile(c.SocialProfiles, "gregabedard", "http://twitter.com/gregabedard", SocialProfileServiceType.Twitter);
 
-                Assert.AreEqual(1, c.Photos.Count);
+                ClassicAssert.AreEqual(1, c.Photos.Count);
                 var photo = c.Photos.First();
 
-                Assert.IsFalse(photo.HasEncodedData, "encoded data should is true");
+                ClassicAssert.IsFalse(photo.HasEncodedData, "encoded data should is true");
                 var encodedString = photo.EncodedData;
 
-                Assert.IsTrue(string.IsNullOrEmpty(encodedString), "encoded data is empty");
+                ClassicAssert.IsTrue(string.IsNullOrEmpty(encodedString), "encoded data is empty");
 
                 System.Drawing.Bitmap bitmap = photo.GetBitmap();
 
-                Assert.IsNotNull(bitmap);
+                ClassicAssert.IsNotNull(bitmap);
 
 
                 //temp quickly
@@ -356,7 +412,7 @@ END:VCARD";
                 }
 
 
-                Assert.IsNotNull(text);
+                ClassicAssert.IsNotNull(text);
             }
         }
 
@@ -387,21 +443,21 @@ END:VCARD";
 
                 var im = card.IMs.FirstOrDefault(m => m.ServiceType == IMServiceType.GoogleTalk);
 
-                Assert.IsNotNull(im);
+                ClassicAssert.IsNotNull(im);
 
-                Assert.AreEqual(IMServiceType.GoogleTalk, im.ServiceType, "service type not set to google talk");
-                Assert.AreEqual("aqibtalib@gtalk.com", im.Handle);
+                ClassicAssert.AreEqual(IMServiceType.GoogleTalk, im.ServiceType, "service type not set to google talk");
+                ClassicAssert.AreEqual("aqibtalib@gtalk.com", im.Handle);
 
                 var yahooIM = card.IMs.FirstOrDefault(m => m.ServiceType == IMServiceType.Yahoo);
-                Assert.IsNotNull(yahooIM);
-                Assert.AreEqual(IMServiceType.Yahoo, yahooIM.ServiceType, "serviceType not set for yahoo");
-                Assert.AreEqual("talibonyahoo", yahooIM.Handle);
+                ClassicAssert.IsNotNull(yahooIM);
+                ClassicAssert.AreEqual(IMServiceType.Yahoo, yahooIM.ServiceType, "serviceType not set for yahoo");
+                ClassicAssert.AreEqual("talibonyahoo", yahooIM.Handle);
 
 
                 var jabberIM = card.IMs.FirstOrDefault(m => m.ServiceType == IMServiceType.Jabber);
-                Assert.IsNotNull(jabberIM);
-                Assert.AreEqual(IMServiceType.Jabber, jabberIM.ServiceType, "serviceType not set for jabber");
-                Assert.AreEqual("talib_jabber", jabberIM.Handle);
+                ClassicAssert.IsNotNull(jabberIM);
+                ClassicAssert.AreEqual(IMServiceType.Jabber, jabberIM.ServiceType, "serviceType not set for jabber");
+                ClassicAssert.AreEqual("talib_jabber", jabberIM.Handle);
             }
         }
 
@@ -414,12 +470,12 @@ END:VCARD";
 
             var sp = sps.FirstOrDefault(x => x.Username == username && x.ServiceType == serviceType);
 
-            Assert.IsNotNull(sp, "no match for socialProfile for " + username + " for serviceType " + serviceType.ToString());
+            ClassicAssert.IsNotNull(sp, "no match for socialProfile for " + username + " for serviceType " + serviceType.ToString());
 
 
-            Assert.AreEqual(url, sp.ProfileUrl);
-            Assert.AreEqual(username, sp.Username);
-            Assert.AreEqual(serviceType, sp.ServiceType);
+            ClassicAssert.AreEqual(url, sp.ProfileUrl);
+            ClassicAssert.AreEqual(username, sp.Username);
+            ClassicAssert.AreEqual(serviceType, sp.ServiceType);
         }
 
         private void CheckIM(vCardIMPPCollection ims, string handle, IMServiceType serviceType, ItemType itemType, bool isPreferred)
@@ -431,9 +487,9 @@ END:VCARD";
 
             var im = ims.FirstOrDefault(x => x.Handle == handle && x.ServiceType == serviceType);
 
-            Assert.IsNotNull(im, "im not matched for handle " + handle + " and servicetype " + serviceType.ToString());
-            Assert.AreEqual(itemType, im.ItemType);
-            Assert.AreEqual(isPreferred, im.IsPreferred);
+            ClassicAssert.IsNotNull(im, "im not matched for handle " + handle + " and servicetype " + serviceType.ToString());
+            ClassicAssert.AreEqual(itemType, im.ItemType);
+            ClassicAssert.AreEqual(isPreferred, im.IsPreferred);
         }
 
         private void CheckAddress(vCardDeliveryAddressCollection addresses, string street, string city, string state, string zip, string country, vCardDeliveryAddressTypes addressTypes, bool isPreferred)
@@ -447,21 +503,21 @@ END:VCARD";
 
             var a = addresses.FirstOrDefault(x => x.Street == street && x.City == city);
 
-            Assert.IsNotNull(a);
+            ClassicAssert.IsNotNull(a);
 
-            Assert.AreEqual(state, a.Region);
-            Assert.AreEqual(zip, a.PostalCode);
-            Assert.AreEqual(country, a.Country);
+            ClassicAssert.AreEqual(state, a.Region);
+            ClassicAssert.AreEqual(zip, a.PostalCode);
+            ClassicAssert.AreEqual(country, a.Country);
 
 
             foreach (var adr in a.AddressType.Where(x => x != vCardDeliveryAddressTypes.Preferred))
             {
-                Assert.IsTrue(adr.HasFlag(addressTypes), "address types are not equal");
+                ClassicAssert.IsTrue(adr.HasFlag(addressTypes), "address types are not equal");
             }
 
-            //  Assert.AreEqual(addressTypes, a.AddressType.);
-            Assert.AreEqual(isPreferred, a.IsPreferred);
-            Assert.AreEqual(a.IsPreferred, a.AddressType.Any(x => x.HasFlag(vCardDeliveryAddressTypes.Preferred)));
+            //  ClassicAssert.AreEqual(addressTypes, a.AddressType.);
+            ClassicAssert.AreEqual(isPreferred, a.IsPreferred);
+            ClassicAssert.AreEqual(a.IsPreferred, a.AddressType.Any(x => x.HasFlag(vCardDeliveryAddressTypes.Preferred)));
         }
 
         private void CheckPhone(vCardPhoneCollection phones, string value, vCardPhoneTypes types, bool isPreferred)
@@ -478,9 +534,9 @@ END:VCARD";
                 Assert.Fail("phone number not found for value " + value);
             }
 
-            Assert.AreEqual(types, p.PhoneType);
+            ClassicAssert.AreEqual(types, p.PhoneType);
 
-            Assert.AreEqual(isPreferred, p.IsPreferred);
+            ClassicAssert.AreEqual(isPreferred, p.IsPreferred);
 
 
             //  types.HasFlag(
@@ -501,9 +557,9 @@ END:VCARD";
                 Assert.Fail("email value " + value + "  is not found in collection");
             }
 
-            Assert.AreEqual(itemType, email.ItemType);
-            Assert.AreEqual(isPreferred, email.IsPreferred);
-            Assert.AreEqual(type, email.EmailType);
+            ClassicAssert.AreEqual(itemType, email.ItemType);
+            ClassicAssert.AreEqual(isPreferred, email.IsPreferred);
+            ClassicAssert.AreEqual(type, email.EmailType);
         }
     }
 }

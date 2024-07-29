@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using System.IO;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 
 namespace Tests
@@ -70,92 +71,92 @@ namespace Tests
         {
             // Start by comparing the base fields.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.AdditionalNames,
                 c2.AdditionalNames,
                 "AdditionalNames does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.BirthDate,
                 c2.BirthDate,
                 "BirthDate does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.DisplayName,
                 c2.DisplayName,
                 "DisplayName does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.FamilyName,
                 c2.FamilyName,
                 "FamilyName does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.FormattedName,
                 c2.FormattedName,
                 "FormattedName does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.Gender,
                 c2.Gender,
                 "Gender does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.GivenName,
                 c2.GivenName,
                 "GivenName does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.Mailer,
                 c2.Mailer,
                 "Mailer does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.NamePrefix,
                 c2.NamePrefix,
                 "NamePrefix does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.NameSuffix,
                 c2.NameSuffix,
                 "NameSuffix does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.Organization,
                 c2.Organization,
                 "Organization does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.ProductId,
                 c2.ProductId,
                 "ProductId does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.RevisionDate,
                 c2.RevisionDate,
                 "RevisionDate does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.Role,
                 c2.Role,
                 "Role does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.TimeZone,
                 c2.TimeZone,
                 "TimeZone does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.Title,
                 c2.Title,
                 "Title does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.ToString(),
                 c2.ToString(),
                 "ToString() does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.UniqueId,
                 c2.UniqueId,
                 "UniqueId does not match.");
@@ -209,7 +210,7 @@ namespace Tests
 
         public static void Equals(vCardCertificate c1, vCardCertificate c2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 c1.KeyType,
                 c2.KeyType,
                 "The key type of the certificates differ.");
@@ -223,7 +224,7 @@ namespace Tests
             vCardCertificateCollection cc1,
             vCardCertificateCollection cc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 cc1.Count,
                 cc2.Count,
                 "The two certificate collections differ in count.");
@@ -242,67 +243,67 @@ namespace Tests
             vCardDeliveryAddress da1,
             vCardDeliveryAddress da2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.AddressType,
                 da2.AddressType,
                 "vCardDeliveryAddress.AddressType differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.City,
                 da2.City,
                 "vCardDeliveryAddress.City differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.Country,
                 da2.Country,
                 "vCardDeliveryAddress.Country differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsDomestic,
                 da2.IsDomestic,
                 "vCardDeliveryAddress.IsDomestic differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsHome,
                 da2.IsHome,
                 "vCardDeliveryAddress.IsHome differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsInternational,
                 da2.IsInternational,
                 "vCardDeliveryAddress.IsInternational differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsParcel,
                 da2.IsParcel,
                 "vCardDeliveryAddress.IsParcel differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsPostal,
                 da2.IsPostal,
                 "vCardDeliveryAddress.IsPostal differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.IsWork,
                 da2.IsWork,
                 "vCardDeliveryAddress.IsWork differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.PostalCode,
                 da2.PostalCode,
                 "vCardDeliveryAddress.PostalCode differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.Region,
                 da2.Region,
                 "vCardDeliveryAddress.Region differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.Street,
                 da2.Street,
                 "vCardDeliveryAddress.Street differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 da1.ToString(),
                 da2.ToString(),
                 "vCardDeliveryAddress.ToString differs.");
@@ -316,7 +317,7 @@ namespace Tests
             vCardDeliveryAddressCollection dac1,
             vCardDeliveryAddressCollection dac2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dac1.Count,
                 dac2.Count,
                 "The two delivery address collections differ.");
@@ -335,47 +336,47 @@ namespace Tests
             vCardDeliveryLabel dl1,
             vCardDeliveryLabel dl2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.AddressType,
                 dl2.AddressType,
                 "vCardDeliveryLabel.AddressType differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsDomestic,
                 dl2.IsDomestic,
                 "vCardDeliveryLabel.IsDomestic differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsHome,
                 dl2.IsHome,
                 "vCardDeliveryLabel.IsHome differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsInternational,
                 dl2.IsInternational,
                 "vCardDeliveryLabel.IsInternational differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsParcel,
                 dl2.IsParcel,
                 "vCardDeliveryLabel.IsParcel differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsPostal,
                 dl2.IsPostal,
                 "vCardDeliveryLabel.IsPostal differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.IsWork,
                 dl2.IsWork,
                 "vCardDeliveryLabel.IsWork differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.Text,
                 dl2.Text,
                 "vCardDeliveryLabel.Text differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dl1.ToString(),
                 dl2.ToString(),
                 "vCardDeliveryLabel.ToString differs.");
@@ -389,7 +390,7 @@ namespace Tests
             vCardDeliveryLabelCollection dlc1,
             vCardDeliveryLabelCollection dlc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 dlc1.Count,
                 dlc2.Count,
                 "vCardDeliveryLabelCollection.Count differs.");
@@ -411,22 +412,22 @@ namespace Tests
         /// </summary>
         public static void Equals(vCardEmailAddress e1, vCardEmailAddress e2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 e1.Address,
                 e2.Address,
                 "vCardEmailAddress.Address differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 e1.EmailType,
                 e2.EmailType,
                 "vCardEmailAddress.EmailType differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 e1.IsPreferred,
                 e2.IsPreferred,
                 "vCardEmailAddress.IsPreferred differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 e1.ToString(),
                 e2.ToString(),
                 "vCardEmailAddress.ToString differs.");
@@ -444,7 +445,7 @@ namespace Tests
             vCardEmailAddressCollection ec1,
             vCardEmailAddressCollection ec2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 ec1.Count,
                 ec2.Count,
                 "The email address collections do not have the same count.");
@@ -464,17 +465,17 @@ namespace Tests
         /// </summary>
         public static void Equals(vCardNote n1, vCardNote n2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 n1.Language,
                 n2.Language,
                 "vCardNote.Language differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 n1.Text,
                 n2.Text,
                 "vCardNote.Text differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 n1.ToString(),
                 n2.ToString(),
                 "vCardNote.ToString differs.");
@@ -486,7 +487,7 @@ namespace Tests
 
         public static void Equals(vCardNoteCollection nc1, vCardNoteCollection nc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 nc1.Count,
                 nc2.Count,
                 "The two note collections have a different count.");
@@ -506,82 +507,82 @@ namespace Tests
         /// </summary>
         public static void Equals(vCardPhone p1, vCardPhone p2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.FullNumber,
                 p2.FullNumber,
                 "vCardPhone.FullNumber differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsBBS,
                 p2.IsBBS,
                 "vCardPhone.IsBBS does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsCar,
                 p2.IsCar,
                 "vCardPhone.IsCar does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsCellular,
                 p2.IsCellular,
                 "vCardPhone.IsCellular does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsFax,
                 p2.IsFax,
                 "vCardPhone.IsFax does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsHome,
                 p2.IsHome,
                 "vCardPhone.IsHome does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsISDN,
                 p2.IsISDN,
                 "vCardPhone.IsISDN does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsMessagingService,
                 p2.IsMessagingService,
                 "vCardPhone.IsMessagingService does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsModem,
                 p2.IsModem,
                 "vCardPhone.IsModem does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsPager,
                 p2.IsPager,
                 "vCardPhone.IsPager does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsPreferred,
                 p2.IsPreferred,
                 "vCardPhone.IsPreferred differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsVideo,
                 p2.IsVideo,
                 "vCardPhone.IsVideo does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsVoice,
                 p2.IsVoice,
                 "vCardPhone.IsVoice does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsWork,
                 p2.IsWork,
                 "vCardPhone.IsWork does not match.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.PhoneType,
                 p2.PhoneType,
                 "vCardPhone.PhoneType differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.ToString(),
                 p2.ToString(),
                 "vCardPhone.ToString differs.");
@@ -593,7 +594,7 @@ namespace Tests
 
         public static void Equals(vCardPhoneCollection pc1, vCardPhoneCollection pc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 pc1.Count,
                 pc2.Count,
                 "The phone collections do not have the same count.");
@@ -610,17 +611,17 @@ namespace Tests
 
         public static void Equals(vCardPhoto p1, vCardPhoto p2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.IsLoaded,
                 p2.IsLoaded,
                 "vCardPhoto.IsLoaded differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.ToString(),
                 p2.ToString(),
                 "vCardPhoto.ToString differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 p1.Url,
                 p2.Url,
                 "vCardPhoto.Url differs.");
@@ -634,7 +635,7 @@ namespace Tests
             vCardPhotoCollection pc1,
             vCardPhotoCollection pc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 pc1.Count,
                 pc2.Count,
                 "The two photo collections differ in count.");
@@ -651,17 +652,17 @@ namespace Tests
 
         public static void Equals(vCardSource s1, vCardSource s2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 s1.Context,
                 s2.Context,
                 "vCardSource.Context differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 s1.ToString(),
                 s2.ToString(),
                 "vCardSource.ToString differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 s1.Uri,
                 s2.Uri,
                 "vCardSource.Uri differs.");
@@ -675,7 +676,7 @@ namespace Tests
             vCardSourceCollection sc1,
             vCardSourceCollection sc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 sc1.Count,
                 sc2.Count,
                 "The two source collections differ.");
@@ -695,27 +696,27 @@ namespace Tests
         /// </summary>
         public static void Equals(vCardWebsite w1, vCardWebsite w2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 w1.IsPersonalSite,
                 w2.IsPersonalSite,
                 "vCardWebSite.IsPersonalSite differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 w1.IsWorkSite,
                 w2.IsWorkSite,
                 "vCardWebSite.IsWorkSite differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 w1.ToString(),
                 w2.ToString(),
                 "vCardWebSite.ToString() differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 w1.Url,
                 w2.Url,
                 "vCardWebSite.Url differs.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 w1.WebsiteType,
                 w2.WebsiteType,
                 "vCardWebSite.WebSiteType differs.");
@@ -727,7 +728,7 @@ namespace Tests
 
         public static void Equals(vCardWebsiteCollection wc1, vCardWebsiteCollection wc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 wc1.Count,
                 wc2.Count,
                 "The web site collections do not have the same count.");
@@ -744,14 +745,14 @@ namespace Tests
 
         public static void Equals(StringCollection sc1, StringCollection sc2)
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 sc1.Count,
                 sc2.Count,
                 "The two string collections differ in count.");
 
             for (int index = 0; index < sc1.Count; index++)
             {
-                Assert.AreEqual(
+                ClassicAssert.AreEqual(
                     sc1[index],
                     sc2[index],
                     "The strings differ at index " + index + ".");

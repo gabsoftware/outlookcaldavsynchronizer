@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -20,7 +21,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\,",
                 writer.EncodeEscaped(","));
         }
@@ -34,7 +35,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\,\,",
                 writer.EncodeEscaped(",,"));
         }
@@ -48,7 +49,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\,text",
                 writer.EncodeEscaped(",text"));
         }
@@ -62,7 +63,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\,text\,",
                 writer.EncodeEscaped(",text,"));
         }
@@ -76,7 +77,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\r\n",
                 writer.EncodeEscaped("\r\n"));
         }
@@ -90,7 +91,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\r\ntext",
                 writer.EncodeEscaped("\r\ntext"));
         }
@@ -104,7 +105,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 string.Empty,
                 writer.EncodeEscaped(string.Empty));
         }
@@ -118,7 +119,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 null,
                 writer.EncodeEscaped((string) null));
         }
@@ -132,7 +133,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\;",
                 writer.EncodeEscaped(";"));
         }
@@ -146,7 +147,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\; \;",
                 writer.EncodeEscaped("; ;"));
         }
@@ -160,7 +161,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"\;\r\n",
                 writer.EncodeEscaped(";\r\n"));
         }
@@ -174,7 +175,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"text\,",
                 writer.EncodeEscaped("text,"));
         }
@@ -188,7 +189,7 @@ namespace Tests
         {
             vCardStandardWriter writer = new vCardStandardWriter();
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 @"text\,text",
                 writer.EncodeEscaped("text,text"));
         }
@@ -213,7 +214,7 @@ namespace Tests
             vCardProperty property =
                 new vCardProperty("NAME");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME:",
                 writer.EncodeProperty(property));
         }
@@ -234,7 +235,7 @@ namespace Tests
             property.Subproperties.Add("SUB1");
             property.Subproperties.Add("SUB2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB1;SUB2:",
                 writer.EncodeProperty(property));
         }
@@ -255,7 +256,7 @@ namespace Tests
             property.Subproperties.Add("SUB1");
             property.Subproperties.Add("SUB2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB1;SUB2:VALUE",
                 writer.EncodeProperty(property));
         }
@@ -275,7 +276,7 @@ namespace Tests
 
             property.Subproperties.Add("SUB");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB:",
                 writer.EncodeProperty(property));
         }
@@ -295,7 +296,7 @@ namespace Tests
 
             property.Subproperties.Add("SUB");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB:VALUE",
                 writer.EncodeProperty(property));
         }
@@ -315,7 +316,7 @@ namespace Tests
 
             property.Subproperties.Add("SUB", "SUBVALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB=SUBVALUE:",
                 writer.EncodeProperty(property));
         }
@@ -335,7 +336,7 @@ namespace Tests
 
             property.Subproperties.Add("SUB", "SUBVALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB=SUBVALUE:VALUE",
                 writer.EncodeProperty(property));
         }
@@ -356,7 +357,7 @@ namespace Tests
             property.Subproperties.Add("SUB1", "SUBVALUE");
             property.Subproperties.Add("SUB2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB1=SUBVALUE;SUB2:",
                 writer.EncodeProperty(property));
         }
@@ -377,7 +378,7 @@ namespace Tests
             property.Subproperties.Add("SUB1", "SUBVALUE");
             property.Subproperties.Add("SUB2");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME;SUB1=SUBVALUE;SUB2:VALUE",
                 writer.EncodeProperty(property));
         }
@@ -395,7 +396,7 @@ namespace Tests
             vCardProperty property =
                 new vCardProperty("NAME", "VALUE");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NAME:VALUE",
                 writer.EncodeProperty(property));
         }
@@ -420,7 +421,7 @@ namespace Tests
         [TestMethod]
         public void EncodeQuotedPrintable_CRLF()
         {
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "=0D=0A",
                 vCardStandardWriter.EncodeQuotedPrintable("\r\n"));
         }
@@ -432,7 +433,7 @@ namespace Tests
         [TestMethod]
         public void EncodeQuotedPrintable_Empty()
         {
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 vCardStandardWriter.EncodeQuotedPrintable(string.Empty));
         }
 
@@ -448,7 +449,7 @@ namespace Tests
             // String.Empty or raise an exception; the best
             // behavior is under investigation.
 
-            Assert.IsNull(
+            ClassicAssert.IsNull(
                 vCardStandardWriter.EncodeQuotedPrintable((string) null));
         }
 

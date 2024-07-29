@@ -32,6 +32,7 @@ using DDay.iCal;
 using DDay.iCal.Serialization.iCalendar;
 using GenSync;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace CalDavDataAccessIntegrationTests
 {

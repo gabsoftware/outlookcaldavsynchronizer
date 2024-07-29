@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 using Thought.vCards;
 using Assert = NUnit.Framework.Assert;
 
@@ -20,7 +21,7 @@ namespace Tests
         {
             vCardEmailAddress email = new vCardEmailAddress();
 
-            Assert.IsEmpty(
+            ClassicAssert.IsEmpty(
                 email.Address,
                 "The Address property should default to String.Empty.");
         }
@@ -35,12 +36,12 @@ namespace Tests
             vCardEmailAddress email =
                 new vCardEmailAddress(TestEmailAddress);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestEmailAddress,
                 email.Address,
                 "The EmailAddress is incorrect.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardEmailAddressType.Internet,
                 email.EmailType,
                 "The EmailType should default to Internet.");
@@ -63,12 +64,12 @@ namespace Tests
                 TestEmailAddress,
                 vCardEmailAddressType.eWorld);
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestEmailAddress,
                 email.Address,
                 "The EmailAddress is not correct.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 vCardEmailAddressType.eWorld,
                 email.EmailType,
                 "The EmailType is not correct.");
@@ -90,7 +91,7 @@ namespace Tests
             vCardEmailAddress email = new vCardEmailAddress();
             email.Address = TestEmailAddress;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 TestEmailAddress,
                 email.Address,
                 "The Address property is not working.");
@@ -108,7 +109,7 @@ namespace Tests
             vCardEmailAddress email = new vCardEmailAddress();
 
             email.EmailType = vCardEmailAddressType.AttMail;
-            Assert.AreEqual(vCardEmailAddressType.AttMail, email.EmailType);
+            ClassicAssert.AreEqual(vCardEmailAddressType.AttMail, email.EmailType);
         }
 
         #endregion
@@ -122,10 +123,10 @@ namespace Tests
 
             vCardEmailAddress email = new vCardEmailAddress();
             email.IsPreferred = true;
-            Assert.IsTrue(email.IsPreferred);
+            ClassicAssert.IsTrue(email.IsPreferred);
 
             email.IsPreferred = false;
-            Assert.IsFalse(email.IsPreferred);
+            ClassicAssert.IsFalse(email.IsPreferred);
         }
 
         #endregion

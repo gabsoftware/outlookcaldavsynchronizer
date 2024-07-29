@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using NUnit.Framework.Legacy;
 using NUnit.Framework;
 using Thought.vCards;
 
@@ -145,41 +146,41 @@ namespace Tests.Samples
             // 008 NOTE:normal card
             // 009 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 2 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 3 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 4.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 6 failed.");
 
             // 007 N:Doe;John;;;;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) on line 7 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) on line 7 failed.");
 
             // 008 NOTE:normal card
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "normal card",
                 card.Notes[0].Text,
                 "NOTE on line 8 failed.");
@@ -203,47 +204,47 @@ namespace Tests.Samples
             // 019 NOTE:card with 2 email addresses
             // 020 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 11 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 12 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 13.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 15 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) failed on line 16.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 16.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.EmailAddresses.Count,
                 "There are two email addresses starting at line 17.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "doe@example",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 17 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "john.doe@example",
                 card.EmailAddresses[1].Address,
                 "EMAIL (address) on line 18 failed.");
@@ -265,37 +266,37 @@ namespace Tests.Samples
             // 028 NOTE:normal card\, with implied N
             // 029 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 22 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 23 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 24.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 26 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) failed on line 27.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 27.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "normal card, with implied N",
                 card.Notes[0].Text,
                 "NOTE on line 28 failed; comma should be unescaped.");
@@ -317,37 +318,37 @@ namespace Tests.Samples
             // 037 NOTE:card with an ID
             // 038 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 31 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 32 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 33.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 35 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) failed on line 36.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 36.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "card with an ID",
                 card.Notes[0].Text,
                 "NOTE on line 37 failed.");
@@ -370,47 +371,47 @@ namespace Tests.Samples
             // 047 URL:http://dev.w3.org/cvsweb/2001/palmagent/doe-pg
             // 048 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 40 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 41 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 42.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 44 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) failed on line 45.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 45.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "card with relative link",
                 card.Notes[0].Text,
                 "NOTE on line 46 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "Only one web site expected, starting at line 47.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/doe-pg",
                 card.Websites[0].Url,
                 "URL on line 47 failed.");
@@ -433,51 +434,51 @@ namespace Tests.Samples
             // 057 NOTE:card with nickname.
             // 058 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 50 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 51 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 52 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe",
                 card.FormattedName,
                 "FN on line 54 failed.");
 
             // 055 N:Doe;John;;;;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe",
                 card.FamilyName,
                 "N (family name) on line 55 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) on line 55 failed.");
 
             // 056 NICKNAME:Johnny
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Nicknames.Count,
                 "One nickname expected on line 56.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Johnny",
                 card.Nicknames[0],
                 "NICKNAME on line 56 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "card with nickname.",
                 card.Notes[0].Text,
                 "NOTE on line 57 failed.");
@@ -499,37 +500,37 @@ namespace Tests.Samples
             // 066 NOTE:tabs in class fields
             // 067 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 60 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 61 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 62.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe2",
                 card.FormattedName,
                 "FN on line 64 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe2",
                 card.FamilyName,
                 "N (family name) failed on line 65.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 65.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "tabs in class fields",
                 card.Notes[0].Text,
                 "NOTE on line 66 failed.");
@@ -551,37 +552,37 @@ namespace Tests.Samples
             // 075 NOTE:LFs in class fields
             // 076 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 69 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 70 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 71.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe3",
                 card.FormattedName,
                 "FN on line 73 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe3",
                 card.FamilyName,
                 "N (family name) failed on line 74.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 74.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "LFs in class fields",
                 card.Notes[0].Text,
                 "NOTE on line 76 failed.");
@@ -603,37 +604,37 @@ namespace Tests.Samples
             // 084 NOTE:CRs in class fields
             // 085 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 78 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 79 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 80.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe3",
                 card.FormattedName,
                 "FN on line 82 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe3",
                 card.FamilyName,
                 "N (family name) failed on line 83.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 83.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "CRs in class fields",
                 card.Notes[0].Text,
                 "NOTE on line 84 failed.");
@@ -656,47 +657,47 @@ namespace Tests.Samples
             // 094 URL:http://example/pg
             // 095 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 87 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 88 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 89.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Joe Name2",
                 card.FormattedName,
                 "FN on line 91 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Name2",
                 card.FamilyName,
                 "N (family name) failed on line 92.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Joe",
                 card.GivenName,
                 "N (given name) failed on line 92.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "which name counts?",
                 card.Notes[0].Text,
                 "NOTE on line 93 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "Only one web site expected at line 94.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://example/pg",
                 card.Websites[0].Url,
                 "URL failed on line 94.");
@@ -719,42 +720,42 @@ namespace Tests.Samples
             // 104 END:VCARD
 
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 97 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 98 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME failed on line 99.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe4",
                 card.FormattedName,
                 "FN on line 101 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe4",
                 card.FamilyName,
                 "N (family name) failed on line 102.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 102.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "lang dominating vcard",
                 card.Notes[0].Text,
                 "NOTE on line 103 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "es",
                 card.Notes[0].Language,
                 "NOTE;language=es failed on line 103.");
@@ -776,42 +777,42 @@ namespace Tests.Samples
             // 112 NOTE;LANGUAGE=es:2langs dominating vcard
             // 113 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 106 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 107 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 108 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe4",
                 card.FormattedName,
                 "FN on line 110 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe4",
                 card.FamilyName,
                 "N (family name) failed on line 111.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) failed on line 111.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "2langs dominating vcard",
                 card.Notes[0].Text,
                 "NOTE failed on line 112.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "es",
                 card.Notes[0].Language,
                 "NOTE;language=es failed on line 112.");
@@ -833,37 +834,37 @@ namespace Tests.Samples
             // 121 NOTE:xml:lang on name elt
             // 122 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 115 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 116 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 117 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John Doe5",
                 card.FormattedName,
                 "FN on line 119 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Doe5",
                 card.FamilyName,
                 "N (family name) on line 120 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "John",
                 card.GivenName,
                 "N (given name) on line 120 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "xml:lang on name elt",
                 card.Notes[0].Text,
                 "NOTE on line 121 failed.");
@@ -886,44 +887,44 @@ namespace Tests.Samples
             // 131 NOTE:comma in photo URI
             // 132 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 124 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 125 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 126 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Comma Photo",
                 card.FormattedName,
                 "FN on line 128 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Photo",
                 card.FamilyName,
                 "N (family name) on line 129 failed.");
 
             // The commas should be escaped out of the URL.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://example/uri,with,commas",
                 card.Photos[0].Url.ToString(),
                 "PHOTO failed on line 130.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Comma",
                 card.GivenName,
                 "N (given name) on line 129 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "comma in photo URI",
                 card.Notes[0].Text,
                 "NOTE on line 131 failed.");
@@ -949,37 +950,37 @@ namespace Tests.Samples
             // 144 URL:http://www.w3.org/
             // 145 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 134 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 135 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 136 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dan Connolly",
                 card.FormattedName,
                 "FN on line 138 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Connolly",
                 card.FamilyName,
                 "N (family name) on line 139 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Dan",
                 card.GivenName,
                 "N (given name) on line 139 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.w3.org/People/Connolly/9704/dan_c_thumb.jpg",
                 card.Photos[0].Url.ToString(),
                 "PHOTO on line 140 failed.");
@@ -991,42 +992,42 @@ namespace Tests.Samples
             //   ;;200 Tech Square;Cambridge;MA;02139;;
             //
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "One (1) address expected starting on line 141.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "200 Tech Square",
                 card.DeliveryAddresses[0].Street,
                 "ADR (street) failed on line 141.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Cambridge",
                 card.DeliveryAddresses[0].City,
                 "ADR (street) failed on line 141.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "MA",
                 card.DeliveryAddresses[0].Region,
                 "ADR (region) failed on line 141.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "02139",
                 card.DeliveryAddresses[0].PostalCode,
                 "ADR (postal code) failed on line 141.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "555-1212",
                 card.Phones[0].FullNumber,
                 "TEL on line 142 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "W3C/MIT",
                 card.Organization,
                 "ORG on line 143 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.w3.org/",
                 card.Websites[0].Url,
                 "URL on line 144 failed.");
@@ -1048,37 +1049,37 @@ namespace Tests.Samples
             // 153 URL:http://suda.co.uk
             // 154 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 147 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 148 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 149 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "brian suda",
                 card.FormattedName,
                 "FN on line 151 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "suda",
                 card.FamilyName,
                 "N (family name) on line 152 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "brian",
                 card.GivenName,
                 "N (given name) on line 152 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://suda.co.uk",
                 card.Websites[0].Url,
                 "URL on line 153 failed.");
@@ -1105,22 +1106,22 @@ namespace Tests.Samples
             // 167 URL:http://greenbytes.de/tech/webdav/
             // 168 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 156 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 157 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 158 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Julian F. Reschke",
                 card.FormattedName,
                 "FN on line 160 failed.");
@@ -1128,10 +1129,10 @@ namespace Tests.Samples
             // The ADR property was completely blank.  The library
             // should not have created a dummy address.
 
-            Assert.IsEmpty(card.DeliveryAddresses,
+            ClassicAssert.IsEmpty(card.DeliveryAddresses,
                 "ADR on line 162 should not have been added.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two (2) phones expected at line 163.");
@@ -1139,25 +1140,25 @@ namespace Tests.Samples
             // 163 TEL;TYPE=voice:+49 251 2807760
             // 164 TEL;TYPE=fax:+49 251 2807761
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+49 251 2807760",
                 card.Phones[0].FullNumber,
                 "TEL at line 163 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL at line 163 is expected to be voice.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+49 251 2807761",
                 card.Phones[1].FullNumber,
                 "TEL at line 164 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsFax,
                 "TEL at line 164 is expected to be a fax.");
 
-            Assert.IsFalse(
+            ClassicAssert.IsFalse(
                 card.Phones[1].IsVoice,
                 "TEL at line 164 should not be marked as voice.");
 
@@ -1166,27 +1167,27 @@ namespace Tests.Samples
             // 166 ORG:greenbytes GmbH
             // 167 URL:http://greenbytes.de/tech/webdav/
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "One (1) email address expected at line 165.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "julian.reschke@greenbytes.de",
                 card.EmailAddresses[0].Address,
                 "EMAIL at line 165 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "greenbytes GmbH",
                 card.Organization,
                 "ORG at line 166 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "One (1) web site expected at line 166.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://greenbytes.de/tech/webdav/",
                 card.Websites[0].Url,
                 "URL at line 167 failed.");
@@ -1213,61 +1214,61 @@ namespace Tests.Samples
             // 181 URL:http://greenbytes.de/tech/webdav/
             // 182 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 170 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 171 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 172 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Julian F. Reschke",
                 card.FormattedName,
                 "FN on line 174 failed.");
 
             // 175 N:Reschke;Julian F.;;;;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Reschke",
                 card.FamilyName,
                 "N (family name) on line 175 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Julian F.",
                 card.GivenName,
                 "N (given name) on line 175 failed.");
 
             // 176 ADR:;;Salzmannstrasse 152;Muenster;NW;;Germany;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.DeliveryAddresses.Count,
                 "One (1) address expected at line 176.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Salzmannstrasse 152",
                 card.DeliveryAddresses[0].Street,
                 "ADR (street) on line 176 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Muenster",
                 card.DeliveryAddresses[0].City,
                 "ADR (city) on line 176 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "NW",
                 card.DeliveryAddresses[0].Region,
                 "ADR (region) on line 176 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Germany",
                 card.DeliveryAddresses[0].Country,
                 "ADR (country) on line 176 failed.");
@@ -1275,56 +1276,56 @@ namespace Tests.Samples
             // 177 TEL;TYPE=voice:+49 251 2807760
             // 178 TEL;TYPE=fax:+49 251 2807761
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Phones.Count,
                 "Two (2) phones expected on lines 177 and 178.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+49 251 2807760",
                 card.Phones[0].FullNumber,
                 "TEL on line 177 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL on line 177 failed (should be voice).");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+49 251 2807761",
                 card.Phones[1].FullNumber,
                 "TEL on line 178 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[1].IsFax,
                 "TEL on line 178 failed (should be fax).");
 
             // 179 EMAIL:julian.reschke@greenbytes.de
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "One (1) email expected on line 179.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "julian.reschke@greenbytes.de",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 179 failed.");
 
             // 180 ORG:greenbytes GmbH
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "greenbytes GmbH",
                 card.Organization,
                 "ORG on line 180 failed.");
 
             // 181 URL:http://greenbytes.de/tech/webdav/
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "One web site expected on line 181.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://greenbytes.de/tech/webdav/",
                 card.Websites[0].Url,
                 "URL on line 181 failed.");
@@ -1353,109 +1354,109 @@ namespace Tests.Samples
             // 197 URL:http://www.swbyps.restaurant.french/~chezchic.html
             // 198 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 184 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Sources.Count,
                 "One source expected at line 185.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 185 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 186 failed.");
 
             // 188 N:;;;Mr.;;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Mr.",
                 card.NamePrefix,
                 "N (suffix) failed on line 188.");
 
             // 189 NICKNAME:Jim,Jimmy
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Nicknames.Count,
                 "Two nicknames expected on line 189.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Jim",
                 card.Nicknames[0],
                 "NICKNAME (Jim) failed on line 189.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Jimmy",
                 card.Nicknames[1],
                 "NICKNAME (Jimmy) failed on line 189.");
 
             // 190 PHOTO;VALUE=uri:http://www.abc.com/pub/photos/jqpublic.gif
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Photos.Count,
                 "One photo expected on line 190.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.abc.com/pub/photos/jqpublic.gif",
                 card.Photos[0].Url.ToString(),
                 "PHOTO (url) failed on line 190.");
 
             // 191 BDAY:1987-09-27T08:30:00-06:00
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 card.BirthDate,
                 "BDAY on line 191 should not be null.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 DateTime.Parse("1987-09-27T08:30:00-06:00"),
                 card.BirthDate.Value,
                 "BDAY on line 191 failed.");
 
             // 192 TEL;TYPE=work,pref,voice,msg:+1-213-555-1234
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Phones.Count,
                 "One TEL expected on line 192.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL (work) on line 192 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsPreferred,
                 "TEL (preferred) on line 192 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL (voice) on line 192 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsMessagingService,
                 "TEL (messaging) on line 192 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-213-555-1234",
                 card.Phones[0].FullNumber,
                 "TEL value on line 192 failed.");
 
             // 193 EMAIL:jqpublic@xyz.dom1.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "One email address on line 193 expected.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "jqpublic@xyz.dom1.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 193 failed.");
@@ -1466,51 +1467,51 @@ namespace Tests.Samples
 
             // 195 CATEGORIES:INTERNET,IETF,INDUSTRY,INFORMATION TECHNOLOGY
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 4,
                 card.Categories.Count,
                 "Four categories expected on line 195.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INTERNET",
                 card.Categories[0],
                 "INTERNET category expected on line 195.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "IETF",
                 card.Categories[1],
                 "IETF category expected on line 195.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INDUSTRY",
                 card.Categories[2],
                 "INDUSTRY category expected on line 195.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INFORMATION TECHNOLOGY",
                 card.Categories[3],
                 "INFORMATION TECHNOLOGY expected on line 195.");
 
             // 196 NOTE:This fax number is operational 0800 to 1715 EST\\, Mon-Fri.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Notes.Count,
                 "One note expected on line 196.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "This fax number is operational 0800 to 1715 EST\\, Mon-Fri.",
                 card.Notes[0].Text,
                 "NOTE on line 196 failed.");
 
             // 197 URL:http://www.swbyps.restaurant.french/~chezchic.html
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "One web site expected on line 197.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.swbyps.restaurant.french/~chezchic.html",
                 card.Websites[0].Url,
                 "URL on line 197 failed.");
@@ -1540,131 +1541,131 @@ namespace Tests.Samples
             // 214 URL:http://www.swbyps.restaurant.french/~chezchic.html
             // 215 END:VCARD
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-//connolly.w3.org//palmagent 0.6 (BETA)//EN",
                 card.ProductId,
                 "PRODID on line 200 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Sources.Count,
                 "One source expected at line 201.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://dev.w3.org/cvsweb/2001/palmagent/hcardTest.html",
                 card.Sources[0].Uri.ToString(),
                 "SOURCE on line 201 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "hCard test data",
                 card.DisplayName,
                 "NAME on line 202 failed.");
 
             // 204 N:Public;;Quinlan;Mr.;Esq.;
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Public",
                 card.FamilyName,
                 "N (family name) on line 204 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Quinlan",
                 card.AdditionalNames,
                 "N (additional names) on line 204 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Mr.",
                 card.NamePrefix,
                 "N (prefix) on line 204 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Esq.",
                 card.NameSuffix,
                 "N (suffix) on line 204 failed.");
 
             // 205 NICKNAME:Jim,Jimmy
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 2,
                 card.Nicknames.Count,
                 "Two nicknames expected on line 205.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Jim",
                 card.Nicknames[0],
                 "NICKNAME (Jim) failed on line 205.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "Jimmy",
                 card.Nicknames[1],
                 "NICKNAME (Jimmy) failed on line 205.");
 
             // 206 PHOTO;VALUE=uri:http://www.abc.com/pub/photos/jqpublic.gif
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Photos.Count,
                 "One photo expected on line 206.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.abc.com/pub/photos/jqpublic.gif",
                 card.Photos[0].Url.ToString(),
                 "PHOTO (url) failed on line 206.");
 
             // 207 BDAY:1987-09-27T08:30:00-06:00
 
-            Assert.IsNotNull(
+            ClassicAssert.IsNotNull(
                 card.BirthDate,
                 "BDAY on line 207 should not be null.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 DateTime.Parse("1987-09-27T08:30:00-06:00"),
                 card.BirthDate.Value,
                 "BDAY on line 207 failed.");
 
             // 208 TEL;TYPE=work,pref,voice,msg:+1-213-555-1234
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Phones.Count,
                 "One TEL expected on line 208.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsWork,
                 "TEL (work) on line 208 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsPreferred,
                 "TEL (preferred) on line 208 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsVoice,
                 "TEL (voice) on line 208 failed.");
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 card.Phones[0].IsMessagingService,
                 "TEL (messaging) on line 208 failed.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "+1-213-555-1234",
                 card.Phones[0].FullNumber,
                 "TEL value on line 208 failed.");
 
             // 209 EMAIL:jqpublic@xyz.dom1.com
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.EmailAddresses.Count,
                 "One email address on line 209 expected.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "jqpublic@xyz.dom1.com",
                 card.EmailAddresses[0].Address,
                 "EMAIL on line 209 failed.");
 
             // 210 TZ:-05:00
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "-05:00",
                 card.TimeZone,
                 "TZ on line 210 failed.");
@@ -1675,51 +1676,51 @@ namespace Tests.Samples
 
             // 212 CATEGORIES:INTERNET,IETF,INDUSTRY,INFORMATION TECHNOLOGY
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 4,
                 card.Categories.Count,
                 "Four categories expected on line 212.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INTERNET",
                 card.Categories[0],
                 "INTERNET category expected on line 212.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "IETF",
                 card.Categories[1],
                 "IETF category expected on line 212.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INDUSTRY",
                 card.Categories[2],
                 "INDUSTRY category expected on line 212.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "INFORMATION TECHNOLOGY",
                 card.Categories[3],
                 "INFORMATION TECHNOLOGY expected on line 212.");
 
             // 213 NOTE:This fax number is operational 0800 to 1715 EST\\, Mon-Fri.
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Notes.Count,
                 "One note expected on line 213.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "This fax number is operational 0800 to 1715 EST\\, Mon-Fri.",
                 card.Notes[0].Text,
                 "NOTE on line 213 failed.");
 
             // 214 URL:http://www.swbyps.restaurant.french/~chezchic.html
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 1,
                 card.Websites.Count,
                 "One web site expected on line 214.");
 
-            Assert.AreEqual(
+            ClassicAssert.AreEqual(
                 "http://www.swbyps.restaurant.french/~chezchic.html",
                 card.Websites[0].Url,
                 "URL on line 214 failed.");
